@@ -1,5 +1,6 @@
 import { setDefaultThemeStyle } from './init';
-import getTheme, { defaultVariables } from './theme';
+import { defaultVariables } from './themes/variables';
+import getTheme from './theme';
 
 setDefaultThemeStyle();
 

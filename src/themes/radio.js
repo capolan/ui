@@ -1,6 +1,6 @@
-import { defaultVariables } from '../theme';
+import { defaultVariables as variables } from './variables';
 
-export default (variables = defaultVariables) => ({
+export default {
   'lh.ui.Radio': {
     container: {
       height: 24,
@@ -26,4 +26,4 @@ export default (variables = defaultVariables) => ({
       },
     },
   },
-});
+};

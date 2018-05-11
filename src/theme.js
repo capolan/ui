@@ -1,101 +1,14 @@
-// import {
-//   Dimensions,
-//   StyleSheet,
-//   Platform,
-//   StatusBar,
-// } from 'react-native';
-import {
-  INCLUDE,
-  createVariations,
-  inverseColorBrightnessForAmount,
-  changeColorAlpha,
-} from '@shoutem/theme';
+import { INCLUDE, createVariations } from '@shoutem/theme';
+
+// Variables
+import { sizeVariants, defaultVariables } from './themes/variables';
 
 // Themes
+import viewTheme from './themes/view';
+import buttonTheme from './themes/button';
+import switchTheme from './themes/switch';
 import checkboxTheme from './themes/checkbox';
 import radioTheme from './themes/radio';
-
-export const sizeVariants = ['', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical'];
-
-const primaryColors = {
-  red: '#EB3B5A',
-  orange: '#FA8231',
-  yellow: '#F7B731',
-  green: '#20BF6B',
-  lightGreen: '#0FB9B1',
-  blue: '#3867D6',
-  lightBlue: '#2D98DA',
-  purple: '#8854D0',
-
-  greys: {
-    100: '#F4F6F8',
-    200: '#D1D8E0',
-    300: '#A5B1C2',
-    400: '#778CA3',
-    500: '#4B6584',
-    600: '#364D68',
-    700: '#243447',
-    800: '#000',
-  },
-};
-
-export const defaultVariables = {
-  featuredColor: primaryColors.lightBlue,
-  backgroundColor: '#f2f2f2',
-  paperColor: '#fff',
-  shadowColor: 'rgba(0, 0, 0, 0.1)',
-
-  selectionColor: primaryColors.greys['700'],
-  placeholderTextColor: changeColorAlpha(primaryColors.greys['700'], 0.5),
-
-  title: {
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    fontSize: 17,
-    color: primaryColors.greys['700'],
-  },
-
-  text: {
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 15,
-    color: primaryColors.greys['700'],
-  },
-
-  label: {
-    fontWeight: 'bold',
-    fontSize: 14,
-    color: primaryColors.greys['600'],
-  },
-
-  button: {
-    text: {
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      fontSize: 15,
-      color: '#fff',
-    },
-
-    backgroundColor: primaryColors.lightBlue,
-    underlayColor: changeColorAlpha(primaryColors.lightBlue, 0.5),
-  },
-
-  switch: {
-    activeBackgroundColor: primaryColors.lightBlue,
-    inativeBackgroundColor: inverseColorBrightnessForAmount('#fff', 15),
-  },
-
-  checkbox: {
-    activeBackgroundColor: primaryColors.lightBlue,
-    inativeBackgroundColor: inverseColorBrightnessForAmount('#fff', 15),
-  },
-
-  extraSmallGutter: 4,
-  smallGutter: 8,
-  mediumGutter: 16,
-  largeGutter: 24,
-  extraLargeGutter: 32,
-};
 
 export default (variables = defaultVariables) => ({
   guttersPadding: {
@@ -261,56 +174,7 @@ export default (variables = defaultVariables) => ({
   },
 
   // View
-  'lh.ui.View': {
-    [INCLUDE]: ['commonVariants', 'guttersPadding'],
-
-    '.horizontal': {
-      [INCLUDE]: ['horizontalFlexAlignment'],
-      flexDirection: 'row',
-      alignItems: 'flex-end',
-    },
-
-    '.vertical': {
-      [INCLUDE]: ['verticalFlexAlignment'],
-      flexDirection: 'column',
-    },
-
-    // '.fill-parent': {
-    //   [INCLUDE]: ['fillParent'],
-    // },
-
-    // '.overlay': {
-    //   backgroundColor: variables.imageOverlayColor,
-    // },
-
-    // '.overlay-bottom': {
-    //   height: 25,
-    //   bottom: 0,
-    //   left: 0,
-    //   position: 'absolute',
-    //   right: 0,
-    // },
-
-    '.solid': {
-      backgroundColor: variables.paperColor,
-    },
-
-    '.wrap': {
-      flexWrap: 'wrap',
-    },
-
-    '.muted': {
-      opacity: 0.3,
-    },
-
-    '.featured': {
-      [INCLUDE]: ['featuredBackground'],
-    },
-
-    '.center': {
-      alignSelf: 'center',
-    },
-  },
+  ...viewTheme,
 
   // FormGroup
   'lh.ui.FormGroup': {
@@ -318,7 +182,7 @@ export default (variables = defaultVariables) => ({
 
     '.blocked': {
       borderWidth: 1,
-      borderColor: primaryColors.greys['100'],
+      borderColor: variables.greys['100'],
       paddingVertical: variables.mediumGutter,
       backgroundColor: variables.paperColor,
 
@@ -413,85 +277,14 @@ export default (variables = defaultVariables) => ({
   },
 
   // Button
-  'lh.ui.Button': {
-    [INCLUDE]: ['commonVariants', 'guttersMargin'],
-
-    '.full-width': {
-      flex: 1,
-      alignSelf: 'stretch',
-      height: 52,
-    },
-
-    '.muted': {
-      'lh.ui.Icon': {
-        opacity: 0.5,
-      },
-
-      'lh.ui.Text': {
-        opacity: 0.5,
-      },
-    },
-
-    'lh.ui.Text': {
-      letterSpacing: 1,
-      paddingVertical: variables.mediumGutter,
-      ...variables.button.text,
-    },
-
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: variables.button.backgroundColor,
-    underlayColor: variables.button.underlayColor,
-  },
+  ...buttonTheme,
 
   // Switch Button
-  'lh.ui.Switch': {
-    container: {
-      borderRadius: 30,
-      height: 36,
-      paddingHorizontal: 6,
-      paddingVertical: 6,
-      width: 60,
-
-      muteAnimation(driver) {
-        return {
-          backgroundColor: driver.interpolate({
-            inputRange: [0, 1],
-            outputRange: [
-              variables.switch.inativeBackgroundColor,
-              variables.switch.activeBackgroundColor,
-            ],
-          }),
-        };
-      },
-    },
-
-    thumb: {
-      backgroundColor: variables.paperColor,
-      borderRadius: 12,
-      height: 24,
-      width: 24,
-
-      turnAnimation(driver, { layout, animationOptions }) {
-        const { width } = layout;
-        return {
-          transform: [
-            {
-              translateX: driver.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, (animationOptions.containerWidth - width - 12)],
-              }),
-            },
-          ],
-        };
-      },
-    },
-  },
+  ...switchTheme,
 
   // Checkbox Button
-  ...checkboxTheme(),
+  ...checkboxTheme,
 
   // Radio Button
-  ...radioTheme(),
+  ...radioTheme,
 });
