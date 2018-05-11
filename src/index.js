@@ -9,6 +9,7 @@ export { getTheme, defaultVariables };
 
 // Components
 export { View } from './components/View';
+export { Screen } from './components/Screen';
 export { FormGroup } from './components/FormGroup';
 export { TextInput } from './components/TextInput';
 

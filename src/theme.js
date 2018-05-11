@@ -5,6 +5,7 @@ import { sizeVariants, defaultVariables } from './themes/variables';
 
 // Themes
 import viewTheme from './themes/view';
+import screenTheme from './themes/screen';
 import textTheme from './themes/text';
 import formGroupTheme from './themes/formGroup';
 import textInputTheme from './themes/textInput';
@@ -178,6 +179,9 @@ export default (variables = defaultVariables) => ({
 
   // View
   ...viewTheme,
+
+  // Screen
+  ...screenTheme,
 
   // Text, Title, Label
   ...textTheme,
