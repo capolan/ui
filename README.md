@@ -1,4 +1,4 @@
-# Shoutem UI
+# Lighthouse UI
 A Customizable and Modular Components Library for React Native apps
 
 ## Install
