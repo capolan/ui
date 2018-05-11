@@ -493,5 +493,5 @@ export default (variables = defaultVariables) => ({
   ...checkboxTheme(),
 
   // Radio Button
-  ...radioTheme,
+  ...radioTheme(),
 });
