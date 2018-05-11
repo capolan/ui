@@ -11,6 +11,10 @@ import {
   changeColorAlpha,
 } from '@shoutem/theme';
 
+// Themes
+import checkboxTheme from './themes/checkbox';
+import radioTheme from './themes/radio';
+
 export const sizeVariants = ['', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical'];
 
 const primaryColors = {
@@ -486,55 +490,8 @@ export default (variables = defaultVariables) => ({
   },
 
   // Checkbox Button
-  'lh.ui.Checkbox': {
-    container: {
-      height: 24,
-      width: 24,
-      borderWidth: 1,
-      borderColor: variables.checkbox.inativeBackgroundColor,
-
-      thumbAnimation(driver) {
-        return {
-          borderColor: driver.interpolate({
-            inputRange: [0, 1],
-            outputRange: [
-              variables.checkbox.inativeBackgroundColor,
-              variables.checkbox.activeBackgroundColor,
-            ],
-          }),
-          borderWidth: driver.interpolate({
-            inputRange: [0, 1],
-            outputRange: [1, 8],
-          }),
-        };
-      },
-    },
-  },
+  ...checkboxTheme(),
 
   // Radio Button
-  'lh.ui.Radio': {
-    container: {
-      height: 24,
-      width: 24,
-      borderRadius: 12,
-      borderWidth: 1,
-      borderColor: variables.checkbox.inativeBackgroundColor,
-
-      thumbAnimation(driver) {
-        return {
-          borderColor: driver.interpolate({
-            inputRange: [0, 1],
-            outputRange: [
-              variables.checkbox.inativeBackgroundColor,
-              variables.checkbox.activeBackgroundColor,
-            ],
-          }),
-          borderWidth: driver.interpolate({
-            inputRange: [0, 1],
-            outputRange: [1, 8],
-          }),
-        };
-      },
-    },
-  },
+  ...radioTheme,
 });
