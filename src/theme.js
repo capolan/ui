@@ -5,6 +5,9 @@ import { sizeVariants, defaultVariables } from './themes/variables';
 
 // Themes
 import viewTheme from './themes/view';
+import textTheme from './themes/text';
+import formGroupTheme from './themes/formGroup';
+import textInputTheme from './themes/textInput';
 import buttonTheme from './themes/button';
 import switchTheme from './themes/switch';
 import checkboxTheme from './themes/checkbox';
@@ -176,105 +179,14 @@ export default (variables = defaultVariables) => ({
   // View
   ...viewTheme,
 
+  // Text, Title, Label
+  ...textTheme,
+
   // FormGroup
-  'lh.ui.FormGroup': {
-    [INCLUDE]: ['commonVariants', 'guttersMargin'],
-
-    '.blocked': {
-      borderWidth: 1,
-      borderColor: variables.greys['100'],
-      paddingVertical: variables.mediumGutter,
-      backgroundColor: variables.paperColor,
-
-      'lh.ui.Label': {
-        paddingBottom: variables.smallGutter,
-      },
-
-      'lh.ui.TextInput': {
-        backgroundColor: 'transparent',
-      },
-    },
-
-    '.inline': {
-      flexDirection: 'row',
-      alignItems: 'center',
-      height: 52,
-      paddingVertical: 0,
-
-      'lh.ui.Label': {
-        flex: 1,
-        paddingBottom: 0,
-      },
-
-      'lh.ui.TextInput': {
-        flex: 1,
-        textAlign: 'right',
-      },
-
-      'lh.ui.Switch': {
-        container: {
-          marginRight: variables.mediumGutter,
-        },
-      },
-
-      'lh.ui.Checkbox': {
-        container: {
-          marginRight: variables.mediumGutter,
-        },
-      },
-
-      'lh.ui.Radio': {
-        container: {
-          marginRight: variables.mediumGutter,
-        },
-      },
-    },
-
-    '.multiline': {
-      'lh.ui.TextInput': {
-        minHeight: 100,
-      },
-    },
-
-    'lh.ui.Label': {
-      paddingBottom: variables.smallGutter,
-      paddingHorizontal: variables.mediumGutter,
-    },
-  },
+  ...formGroupTheme,
 
   // TextInput
-  'lh.ui.TextInput': {
-    [INCLUDE]: ['commonVariants', 'guttersMargin'],
-
-    minHeight: 52,
-    paddingVertical: variables.smallGutter,
-    paddingHorizontal: variables.mediumGutter,
-    selectionColor: variables.selectionColor,
-    placeholderTextColor: variables.placeholderTextColor,
-    backgroundColor: variables.paperColor,
-    underlineColorAndroid: 'transparent',
-  },
-
-  // Title
-  'lh.ui.Title': {
-    [INCLUDE]: ['text'],
-
-    ...variables.title,
-  },
-
-  // Text
-  'lh.ui.Text': {
-    [INCLUDE]: ['text'],
-
-    ...variables.text,
-  },
-
-  // Label
-  'lh.ui.Label': {
-    [INCLUDE]: ['text'],
-
-    ...variables.label,
-  },
+  ...textInputTheme,
 
   // Button
   ...buttonTheme,
