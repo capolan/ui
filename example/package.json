@@ -2,6 +2,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "dependencies": {
+    "@lighthouseit/ui": "^0.0.3",
     "@shoutem/animation": "^0.12.2",
     "@shoutem/theme": "^0.11.1",
     "expo": "^27.0.1",
