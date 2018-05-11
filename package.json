@@ -1,0 +1,46 @@
+{
+  "name": "@lighthouseit/ui",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "repository": "https://github.com/LighthouseIT/ui",
+  "bugs": {
+    "url": "https://github.com/LighthouseIT/ui/issues"
+  },
+  "author": "Donald Silveira <donaldsilveira@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@shoutem/animation": "^0.12.2",
+    "@shoutem/theme": "^0.11.1",
+    "lodash": "^4.17.10",
+    "prop-types": "^15.6.1"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-native": ">=0.40.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-env": "^1.6.1",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react-native": "^3.2.1",
+    "husky": "^0.14.3",
+    "mockery": "^2.1.0",
+    "react-dom": "16.0.0"
+  },
+  "rnpm": {
+    "assets": [
+      "src/fonts"
+    ],
+    "commands": {
+      "postlink": "node ./node_modules/@lighthouseit/ui/scripts/link.js"
+    }
+  }
+}
