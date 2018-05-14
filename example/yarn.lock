@@ -511,6 +511,15 @@
     lodash "^4.17.4"
     react-native-vector-icons "4.5.0"
 
+"@lighthouseit/ui@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@lighthouseit/ui/-/ui-0.0.7.tgz#9e56d95f86b0994cdd56f1e7687b88290570a50c"
+  dependencies:
+    "@shoutem/animation" "^0.12.2"
+    "@shoutem/theme" "^0.11.1"
+    lodash "^4.17.10"
+    prop-types "^15.6.1"
+
 "@shoutem/animation@^0.12.2":
   version "0.12.2"
   resolved "https://registry.yarnpkg.com/@shoutem/animation/-/animation-0.12.2.tgz#ea64b3d982f3a76e79dc736da6f45a5772cba4a8"
