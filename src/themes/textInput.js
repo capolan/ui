@@ -8,9 +8,15 @@ export default {
     minHeight: 52,
     paddingVertical: variables.smallGutter,
     paddingHorizontal: variables.mediumGutter,
-    selectionColor: variables.selectionColor,
-    placeholderTextColor: variables.placeholderTextColor,
-    backgroundColor: variables.paperColor,
+    borderWidth: variables.textInput.borderWidth,
+    borderColor: variables.textInput.borderColor,
+    selectionColor: variables.textInput.selectionColor,
+    placeholderTextColor: variables.textInput.placeholderTextColor,
+    backgroundColor: variables.textInput.backgroundColor,
     underlineColorAndroid: 'transparent',
+
+    'lh.ui.Text': {
+      ...variables.textInput.text,
+    },
   },
 };

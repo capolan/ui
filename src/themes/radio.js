@@ -7,15 +7,15 @@ export default {
       width: 24,
       borderRadius: 12,
       borderWidth: 1,
-      borderColor: variables.checkbox.inativeBackgroundColor,
+      borderColor: variables.radio.inativeBackgroundColor,
 
       thumbAnimation(driver) {
         return {
           borderColor: driver.interpolate({
             inputRange: [0, 1],
             outputRange: [
-              variables.checkbox.inativeBackgroundColor,
-              variables.checkbox.activeBackgroundColor,
+              variables.radio.inativeBackgroundColor,
+              variables.radio.activeBackgroundColor,
             ],
           }),
           borderWidth: driver.interpolate({

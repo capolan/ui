@@ -6,10 +6,10 @@ export default {
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
     '.blocked': {
-      borderWidth: 1,
-      borderColor: variables.greys['100'],
+      borderWidth: variables.formGroup.borderWidth,
+      borderColor: variables.formGroup.borderColor,
       paddingVertical: variables.mediumGutter,
-      backgroundColor: variables.paperColor,
+      backgroundColor: variables.formGroup.backgroundColor,
 
       'lh.ui.Label': {
         paddingBottom: variables.smallGutter,

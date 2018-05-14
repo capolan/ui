@@ -30,6 +30,8 @@ export default {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: variables.button.borderWidth,
+    borderColor: variables.button.borderColor,
     backgroundColor: variables.button.backgroundColor,
     underlayColor: variables.button.underlayColor,
   },

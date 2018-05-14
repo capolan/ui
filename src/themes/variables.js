@@ -6,61 +6,64 @@
 // } from 'react-native';
 import { inverseColorBrightnessForAmount, changeColorAlpha } from '@shoutem/theme';
 
-export const sizeVariants = ['', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical'];
-
-export const primaryColors = {
-  red: '#EB3B5A',
-  orange: '#FA8231',
-  yellow: '#F7B731',
-  green: '#20BF6B',
-  lightGreen: '#0FB9B1',
-  blue: '#3867D6',
-  lightBlue: '#2D98DA',
-  purple: '#8854D0',
-
-  greys: {
-    100: '#F4F6F8',
-    200: '#D1D8E0',
-    300: '#A5B1C2',
-    400: '#778CA3',
-    500: '#4B6584',
-    600: '#364D68',
-    700: '#243447',
-    800: '#000',
-  },
-};
+export const sizeVariants = [
+  '', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical',
+];
 
 export const defaultVariables = {
-  ...primaryColors,
-
-  featuredColor: primaryColors.lightBlue,
+  fontFamily: '',
+  featuredColor: #8854D0,
   backgroundColor: '#f2f2f2',
   paperColor: '#fff',
   shadowColor: 'rgba(0, 0, 0, 0.1)',
 
-  selectionColor: primaryColors.greys['700'],
-  placeholderTextColor: changeColorAlpha(primaryColors.greys['700'], 0.5),
+  successColor: '#20BF6B',
+  dangerColor: '#EB3B5A',
+  warningColor: '#F7B731',
+  infoColor: '#3867D6',
 
-  title: {
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    fontSize: 17,
-    color: primaryColors.greys['700'],
+  // Typography
+  typography: {
+    heading: {
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontSize: 25,
+      color: #243447,
+    },
+    title: {
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontSize: 20,
+      color: #243447,
+    },
+    subtitle: {
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontSize: 15,
+      color: #243447,
+    },
+    caption: {
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontSize: 12,
+      color: #4b6584,
+    },
+    text: {
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontSize: 15,
+      color: #243447,
+    },
   },
 
-  text: {
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 15,
-    color: primaryColors.greys['700'],
+  // FormGrouo
+  formGroup: {
+    borderWidth: 1,
+    borderColor: '#F4F6F8',
+    backgroundColor: '#fff',
   },
 
-  label: {
-    fontWeight: 'bold',
-    fontSize: 14,
-    color: primaryColors.greys['600'],
-  },
-
+  // Button
   button: {
     text: {
       fontStyle: 'normal',
@@ -69,18 +72,59 @@ export const defaultVariables = {
       color: '#fff',
     },
 
-    backgroundColor: primaryColors.lightBlue,
-    underlayColor: changeColorAlpha(primaryColors.lightBlue, 0.5),
+    borderWidth: 1,
+    borderColor: #8854D0,
+    backgroundColor: #8854D0,
+    underlayColor: changeColorAlpha(#8854D0, 0.5),
   },
 
+  // Label
+  label: {
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: #243447,
+  },
+
+  // TextInput
+  textInput: {
+    text: {
+      color: #243447,
+    },
+
+    selectionColor: #243447,
+    borderWidth: 1,
+    borderColor: #8854D0,
+    backgroundColor: #8854D0,
+    placeholderTextColor: changeColorAlpha(#243447, 0.5),
+  },
+
+  // Switch
   switch: {
-    activeBackgroundColor: primaryColors.lightBlue,
+    activeBackgroundColor: #8854D0,
     inativeBackgroundColor: inverseColorBrightnessForAmount('#fff', 15),
   },
 
+  // Checkbox
   checkbox: {
-    activeBackgroundColor: primaryColors.lightBlue,
+    activeBackgroundColor: #8854D0,
     inativeBackgroundColor: inverseColorBrightnessForAmount('#fff', 15),
+  },
+
+  // Radio
+  radio: {
+    activeBackgroundColor: #8854D0,
+    inativeBackgroundColor: inverseColorBrightnessForAmount('#fff', 15),
+  },
+
+  // Navigation
+  navigation: {
+    title: {},
+    icons: {},
+
+    backgroundColor: {},
+    borderBottomColor: {},
+    borderBottomWidth: {},
   },
 
   extraSmallGutter: 4,
