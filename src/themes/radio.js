@@ -1,7 +1,10 @@
+import { INCLUDE } from '@shoutem/theme';
 import { defaultVariables as variables } from './variables';
 
 export default {
   'lh.ui.Radio': {
+    [INCLUDE]: ['guttersMargin'],
+
     container: {
       height: 24,
       width: 24,

@@ -1,7 +1,10 @@
+import { INCLUDE } from '@shoutem/theme';
 import { defaultVariables as variables } from './variables';
 
 export default {
   'lh.ui.Switch': {
+    [INCLUDE]: ['guttersMargin'],
+
     container: {
       borderRadius: 30,
       height: 36,
