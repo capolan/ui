@@ -2,6 +2,51 @@ import { INCLUDE } from '@shoutem/theme';
 import { defaultVariables as variables } from './variables';
 
 export default {
+  multilineTextStyle: {
+    '.v-center': {
+      // Compensate for lineHeight, because
+      // textAlignVertical is not supported on iOS
+      marginTop: -4,
+      marginBottom: 4,
+    },
+
+    lineHeight: 26,
+  },
+
+  text: {
+    [INCLUDE]: ['commonVariants', 'guttersMargin', 'guttersMarginVerticalOnly'],
+
+    '.line-through': {
+      textDecorationLine: 'line-through',
+    },
+
+    '.h-left': {
+      textAlign: 'left',
+    },
+
+    '.h-right': {
+      textAlign: 'right',
+    },
+
+    '.h-center': {
+      textAlign: 'center',
+    },
+
+    '.bold': {
+      fontWeight: 'bold',
+    },
+
+    '.multiline': {
+      [INCLUDE]: ['multilineTextStyle'],
+    },
+
+    '.muted': {
+      opacity: 0.5,
+    },
+
+    backgroundColor: 'transparent',
+  },
+
   // Heding
   'lh.ui.Heding': {
     [INCLUDE]: ['text'],

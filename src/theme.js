@@ -31,6 +31,14 @@ export default (variables = defaultVariables) => ({
     ...createVariations('.xl-gutter', sizeVariants, 'margin', variables.extraLargeGutter),
   },
 
+  guttersMarginVerticalOnly: {
+    ...createVariations('.v-xs-gutter', sizeVariants, 'margin', variables.extraSmallGutter),
+    ...createVariations('.v-sm-gutter', sizeVariants, 'margin', variables.smallGutter),
+    ...createVariations('.v-md-gutter', sizeVariants, 'margin', variables.mediumGutter),
+    ...createVariations('.v-lg-gutter', sizeVariants, 'margin', variables.largeGutter),
+    ...createVariations('.v-xl-gutter', sizeVariants, 'margin', variables.extraLargeGutter),
+  },
+
   commonVariants: {
     '.rounded-corners': {
       borderRadius: 2,
@@ -61,63 +69,6 @@ export default (variables = defaultVariables) => ({
     '.space-around': {
       justifyContent: 'space-around',
     },
-  },
-
-  boldTextStyle: {
-    fontWeight: '500',
-  },
-
-  italicTextStyle: {
-    fontStyle: 'italic',
-  },
-
-  codeTextStyle: {
-    fontFamily: 'Menlo',
-  },
-
-  multilineTextStyle: {
-    '.v-center': {
-      // Compensate for lineHeight, because
-      // textAlignVertical is not supported on iOS
-      marginTop: -4,
-      marginBottom: 4,
-    },
-
-    lineHeight: 26,
-  },
-
-  text: {
-    [INCLUDE]: ['commonVariants', 'guttersMargin'],
-
-    '.line-through': {
-      textDecorationLine: 'line-through',
-    },
-
-    '.h-left': {
-      textAlign: 'left',
-    },
-
-    '.h-right': {
-      textAlign: 'right',
-    },
-
-    '.h-center': {
-      textAlign: 'center',
-    },
-
-    '.bold': {
-      [INCLUDE]: ['boldTextStyle'],
-    },
-
-    '.multiline': {
-      [INCLUDE]: ['multilineTextStyle'],
-    },
-
-    '.muted': {
-      opacity: 0.5,
-    },
-
-    backgroundColor: 'transparent',
   },
 
   featuredBackground: {
