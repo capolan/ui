@@ -5,10 +5,7 @@ export default {
   'lh.ui.Screen': {
     [INCLUDE]: ['commonVariants', 'guttersPadding'],
 
-    keyboardAvoidingView: {
-      flex: 1,
-    },
-
     flexGrow: 1,
+    backgroundColor: variables.backgroundColor,
   },
 };

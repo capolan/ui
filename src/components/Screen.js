@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import { KeyboardAvoidingView, ScrollView, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
+import { KeyboardAvoidingView, ScrollView, ScrollViewProps } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
 import { connectAnimation } from '@shoutem/animation';
 
 class Screen extends Component {
   static propTypes = {
-    ...ViewPropTypes,
+    ...ScrollViewProps,
+    renderNavigationHeader: PropTypes.element,
+  }
+
+  renderNavigationHeader = () => {
+    if (!this.props.renderNavigationHeader) return null;
+    return this.props.renderNavigationHeader;
   }
 
   render() {
-    const { props } = this;
-    const style = {
-      ...props.style,
-    };
-    delete style.keyboardAvoidingView;
+    const navigationHeader = this.renderNavigationHeader();
 
     return (
-      <KeyboardAvoidingView style={props.style.keyboardAvoidingView} behavior="padding">
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+        {navigationHeader}
         <ScrollView
-          contentContainerStyle={style}
+          contentContainerStyle={this.props.style}
           keyboardDismissMode="interactive"
           bounces={false}
         >
