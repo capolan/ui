@@ -32,11 +32,21 @@ export default (variables = defaultVariables) => ({
   },
 
   guttersMarginVerticalOnly: {
-    ...createVariations('.v-xs-gutter', sizeVariants, 'margin', variables.extraSmallGutter),
-    ...createVariations('.v-sm-gutter', sizeVariants, 'margin', variables.smallGutter),
-    ...createVariations('.v-md-gutter', sizeVariants, 'margin', variables.mediumGutter),
-    ...createVariations('.v-lg-gutter', sizeVariants, 'margin', variables.largeGutter),
-    ...createVariations('.v-xl-gutter', sizeVariants, 'margin', variables.extraLargeGutter),
+    ...createVariations(
+      '.v-xs-gutter', sizeVariants, 'marginVertical', variables.extraSmallGutter
+    ),
+    ...createVariations(
+      '.v-sm-gutter', sizeVariants, 'marginVertical', variables.smallGutter
+    ),
+    ...createVariations(
+      '.v-md-gutter', sizeVariants, 'marginVertical', variables.mediumGutter
+    ),
+    ...createVariations(
+      '.v-lg-gutter', sizeVariants, 'marginVertical', variables.largeGutter
+    ),
+    ...createVariations(
+      '.v-xl-gutter', sizeVariants, 'marginVertical', variables.extraLargeGutter
+    ),
   },
 
   commonVariants: {
