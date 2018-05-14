@@ -12,10 +12,12 @@ export default {
       backgroundColor: variables.formGroup.backgroundColor,
 
       'lh.ui.Label': {
+        borderWidth: 0,
         paddingBottom: variables.smallGutter,
       },
 
       'lh.ui.TextInput': {
+        borderWidth: 0,
         backgroundColor: 'transparent',
       },
     },
