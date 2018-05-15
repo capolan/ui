@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { KeyboardAvoidingView, ScrollView, ScrollViewProps } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  SafeAreaView,
+  ScrollView,
+  ScrollViewProps,
+} from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
 import { connectAnimation } from '@shoutem/animation';
@@ -27,7 +32,9 @@ class Screen extends Component {
           keyboardDismissMode="interactive"
           bounces={false}
         >
-          {this.props.children}
+          <SafeAreaView style={{ flex: 1 }}>
+            {this.props.children}
+          </SafeAreaView>
         </ScrollView>
       </KeyboardAvoidingView>
     );
