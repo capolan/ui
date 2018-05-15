@@ -28,4 +28,5 @@ class Button extends Component {
 
 const AnimatedButton = connectAnimation(Button);
 const StyledButton = connectStyle('lh.ui.Button')(AnimatedButton);
+
 export { StyledButton as Button };
