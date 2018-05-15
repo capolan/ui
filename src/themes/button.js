@@ -48,8 +48,12 @@ export default {
 
     'lh.ui.Text': {
       letterSpacing: 1,
-      paddingVertical: variables.mediumGutter,
+      marginVertical: variables.mediumGutter,
       ...variables.button.text,
+    },
+
+    'lh.ui.Icon': {
+      marginHorizontal: variables.mediumGutter,
     },
 
     flexDirection: 'row',
