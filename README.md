@@ -1,5 +1,6 @@
 # Lighthouse UI
-A Customizable and Modular Components Library for React Native apps
+A Customizable and Modular Components Library for React Native apps.
+This library was inspired on the [Shoutem UI](https://github.com/shoutem/ui/) and adapted to the Lighthouse's developer team ecosystem.
 
 ## Install
 
