@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 import { INCLUDE, createVariations } from '@shoutem/theme';
 
 // Variables
@@ -6,6 +7,7 @@ import { sizeVariants, defaultVariables } from './themes/variables';
 // Themes
 import viewTheme from './themes/view';
 import screenTheme from './themes/screen';
+import navigationHeaderTheme from './themes/navigationHeader';
 import textTheme from './themes/text';
 import formGroupTheme from './themes/formGroup';
 import textInputTheme from './themes/textInput';
@@ -13,6 +15,7 @@ import buttonTheme from './themes/button';
 import switchTheme from './themes/switch';
 import checkboxTheme from './themes/checkbox';
 import radioTheme from './themes/radio';
+import iconTheme from './themes/icon';
 
 export default (variables = defaultVariables) => ({
   guttersPadding: {
@@ -81,10 +84,6 @@ export default (variables = defaultVariables) => ({
     },
   },
 
-  featuredBackground: {
-    backgroundColor: variables.featuredColor,
-  },
-
   // Flex Alignments
   verticalFlexAlignment: {
     '.h-center': {
@@ -138,13 +137,30 @@ export default (variables = defaultVariables) => ({
     },
   },
 
+  featuredBackground: {
+    backgroundColor: variables.featuredColor,
+  },
+
+  // Fill parent
+  fillParent: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  'fill-parent': {
+    '.fill-parent': {
+      [INCLUDE]: ['fillParent'],
+    },
+  },
+
   // View
   ...viewTheme,
 
   // Screen
   ...screenTheme,
 
-  // Text, Title, Label
+  // Navigation Header
+  ...navigationHeaderTheme,
+
+  // Heading, Title, Subtitle, Caption, Text, Label
   ...textTheme,
 
   // FormGroup
@@ -164,4 +180,7 @@ export default (variables = defaultVariables) => ({
 
   // Radio Button
   ...radioTheme,
+
+  // Icon Button
+  ...iconTheme,
 });

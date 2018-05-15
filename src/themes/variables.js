@@ -1,10 +1,8 @@
-// import {
-//   Dimensions,
-//   StyleSheet,
-//   Platform,
-//   StatusBar,
-// } from 'react-native';
-import { inverseColorBrightnessForAmount, changeColorAlpha } from '@shoutem/theme';
+import {
+  INCLUDE,
+  inverseColorBrightnessForAmount,
+  changeColorAlpha,
+} from '@shoutem/theme';
 
 export const sizeVariants = [
   '', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical',
@@ -15,12 +13,19 @@ export const defaultVariables = {
   featuredColor: '#8854D0',
   backgroundColor: '#f2f2f2',
   paperColor: '#fff',
+  darkColor: '#243447',
   shadowColor: 'rgba(0, 0, 0, 0.1)',
 
   successColor: '#20BF6B',
   dangerColor: '#EB3B5A',
   warningColor: '#F7B731',
   infoColor: '#3867D6',
+
+  extraSmallGutter: 4,
+  smallGutter: 8,
+  mediumGutter: 16,
+  largeGutter: 24,
+  extraLargeGutter: 32,
 
   // Typography
   typography: {
@@ -120,16 +125,14 @@ export const defaultVariables = {
   // Navigation
   navigation: {
     title: {},
-    icons: {},
 
-    backgroundColor: {},
-    borderBottomColor: {},
-    borderBottomWidth: {},
+    icons: {
+      color: '#243447',
+    },
+
+    height: 60,
+    backgroundColor: '#fff',
+    borderBottomColor: '#f4f4f4',
+    borderBottomWidth: 1,
   },
-
-  extraSmallGutter: 4,
-  smallGutter: 8,
-  mediumGutter: 16,
-  largeGutter: 24,
-  extraLargeGutter: 32,
 };
