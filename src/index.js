@@ -10,6 +10,7 @@ export { getTheme, defaultVariables };
 // Components
 export { View } from './components/View';
 export { Screen } from './components/Screen';
+export { NavigationHeader } from './components/NavigationHeader';
 export { FormGroup } from './components/FormGroup';
 export { TextInput } from './components/TextInput';
 
@@ -26,3 +27,4 @@ export { Button } from './components/Button';
 export { Switch } from './components/Switch';
 export { Checkbox } from './components/Checkbox';
 export { Radio } from './components/Radio';
+export { Icon } from './components/Icon';
