@@ -24,6 +24,16 @@ export default (variables = defaultVariables) => ({
     ...createVariations('.md-gutter', sizeVariants, 'padding', variables.mediumGutter),
     ...createVariations('.lg-gutter', sizeVariants, 'padding', variables.largeGutter),
     ...createVariations('.xl-gutter', sizeVariants, 'padding', variables.extraLargeGutter),
+    ...createVariations('.v-xs-gutter', sizeVariants, 'paddingVertical', variables.extraSmallGutter),
+    ...createVariations('.v-sm-gutter', sizeVariants, 'paddingVertical', variables.smallGutter),
+    ...createVariations('.v-md-gutter', sizeVariants, 'paddingVertical', variables.mediumGutter),
+    ...createVariations('.v-lg-gutter', sizeVariants, 'paddingVertical', variables.largeGutter),
+    ...createVariations('.v-xl-gutter', sizeVariants, 'paddingVertical', variables.extraLargeGutter),
+    ...createVariations('.h-xs-gutter', sizeVariants, 'paddingHorizontal', variables.extraSmallGutter),
+    ...createVariations('.h-sm-gutter', sizeVariants, 'paddingHorizontal', variables.smallGutter),
+    ...createVariations('.h-md-gutter', sizeVariants, 'paddingHorizontal', variables.mediumGutter),
+    ...createVariations('.h-lg-gutter', sizeVariants, 'paddingHorizontal', variables.largeGutter),
+    ...createVariations('.h-xl-gutter', sizeVariants, 'paddingHorizontal', variables.extraLargeGutter),
   },
 
   guttersMargin: {
@@ -32,24 +42,16 @@ export default (variables = defaultVariables) => ({
     ...createVariations('.md-gutter', sizeVariants, 'margin', variables.mediumGutter),
     ...createVariations('.lg-gutter', sizeVariants, 'margin', variables.largeGutter),
     ...createVariations('.xl-gutter', sizeVariants, 'margin', variables.extraLargeGutter),
-  },
-
-  guttersMarginVerticalOnly: {
-    ...createVariations(
-      '.v-xs-gutter', sizeVariants, 'marginVertical', variables.extraSmallGutter
-    ),
-    ...createVariations(
-      '.v-sm-gutter', sizeVariants, 'marginVertical', variables.smallGutter
-    ),
-    ...createVariations(
-      '.v-md-gutter', sizeVariants, 'marginVertical', variables.mediumGutter
-    ),
-    ...createVariations(
-      '.v-lg-gutter', sizeVariants, 'marginVertical', variables.largeGutter
-    ),
-    ...createVariations(
-      '.v-xl-gutter', sizeVariants, 'marginVertical', variables.extraLargeGutter
-    ),
+    ...createVariations('.v-xs-gutter', sizeVariants, 'marginVertical', variables.extraSmallGutter),
+    ...createVariations('.v-sm-gutter', sizeVariants, 'marginVertical', variables.smallGutter),
+    ...createVariations('.v-md-gutter', sizeVariants, 'marginVertical', variables.mediumGutter),
+    ...createVariations('.v-lg-gutter', sizeVariants, 'marginVertical', variables.largeGutter),
+    ...createVariations('.v-xl-gutter', sizeVariants, 'marginVertical', variables.extraLargeGutter),
+    ...createVariations('.h-xs-gutter', sizeVariants, 'marginHorizontal', variables.extraSmallGutter),
+    ...createVariations('.h-sm-gutter', sizeVariants, 'marginHorizontal', variables.smallGutter),
+    ...createVariations('.h-md-gutter', sizeVariants, 'marginHorizontal', variables.mediumGutter),
+    ...createVariations('.h-lg-gutter', sizeVariants, 'marginHorizontal', variables.largeGutter),
+    ...createVariations('.h-xl-gutter', sizeVariants, 'marginHorizontal', variables.extraLargeGutter),
   },
 
   commonVariants: {

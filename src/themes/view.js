@@ -16,9 +16,9 @@ export default {
       flexDirection: 'column',
     },
 
-    // '.fill-parent': {
-    //   [INCLUDE]: ['fillParent'],
-    // },
+    '.fill-parent': {
+      [INCLUDE]: ['fillParent'],
+    },
 
     // '.overlay': {
     //   backgroundColor: variables.imageOverlayColor,

@@ -3,7 +3,7 @@ import { defaultVariables as variables } from './variables';
 
 export default {
   'lh.ui.Screen': {
-    [INCLUDE]: ['commonVariants', 'guttersPadding', 'verticalFlexAlignment'],
+    [INCLUDE]: ['verticalFlexAlignment'],
 
     '.transparent': {
       backgroundColor: 'transparent',

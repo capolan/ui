@@ -14,7 +14,7 @@ export default {
   },
 
   text: {
-    [INCLUDE]: ['commonVariants', 'guttersMargin', 'guttersMarginVerticalOnly'],
+    [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
     '.line-through': {
       textDecorationLine: 'line-through',
