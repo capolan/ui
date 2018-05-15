@@ -65,7 +65,7 @@ export default {
 
     'lh.ui.Button': {
       flex: 1,
-      paddingHorizontal: variables.mediumGutter,
+      paddingHorizontal: variables.extraSmallGutter,
 
       'lh.ui.Icon': {
         color: variables.navigation.icons.color,
