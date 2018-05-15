@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { StatusBar, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
+import * as _ from 'lodash';
+import color from 'tinycolor2';
 
 import { connectStyle } from '@shoutem/theme';
 import { connectAnimation } from '@shoutem/animation';
@@ -22,6 +24,24 @@ class NavigationHeader extends Component {
     id: PropTypes.string,
   };
 
+  getBackgroundColor = (style) => {
+    const bgColor = _.find(style, (styleDef) =>
+      styleDef.backgroundColor && styleDef.backgroundColor !== 'transparent'
+    );
+    return bgColor && bgColor.backgroundColor || 'transparent';
+  }
+
+  setStatusBarStyle = (backgroundColor) => {
+    const barStyle = color(backgroundColor).isDark()
+      ? 'light-content'
+      : 'dark-content';
+
+    if (Platform.OS === 'android') {
+      StatusBar.setBackgroundColor(backgroundColor);
+    }
+    StatusBar.setBarStyle(barStyle);
+  }
+
   render() {
     const {
       leftComponent,
@@ -30,6 +50,9 @@ class NavigationHeader extends Component {
       style,
       id,
     } = this.props;
+
+    const backgroundColor = this.getBackgroundColor(style);
+    this.setStatusBarStyle(backgroundColor);
 
     return (
       <SafeAreaView style={style.container} key={id}>

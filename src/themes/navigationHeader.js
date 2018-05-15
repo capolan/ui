@@ -9,6 +9,22 @@ export default {
       }
     },
 
+    '.dark': {
+      container: {
+        backgroundColor: '#000',
+      },
+
+      'lh.ui.Title': {
+        color: '#fff',
+      },
+
+      'lh.ui.Button': {
+        'lh.ui.Icon': {
+          color: '#fff',
+        },
+      },
+    },
+
     container: {
       height: variables.navigation.height,
       backgroundColor: variables.navigation.backgroundColor,
