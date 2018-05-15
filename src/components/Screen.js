@@ -28,11 +28,11 @@ class Screen extends Component {
       <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
         {navigationHeader}
         <ScrollView
-          contentContainerStyle={this.props.style}
+          contentContainerStyle={{ flexGrow: 1 }}
           keyboardDismissMode="interactive"
           bounces={false}
         >
-          <SafeAreaView style={{ flex: 1 }}>
+          <SafeAreaView style={this.props.style}>
             {this.props.children}
           </SafeAreaView>
         </ScrollView>

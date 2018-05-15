@@ -3,9 +3,13 @@ import { defaultVariables as variables } from './variables';
 
 export default {
   'lh.ui.Screen': {
-    [INCLUDE]: ['commonVariants', 'guttersPadding'],
+    [INCLUDE]: ['commonVariants', 'guttersPadding', 'verticalFlexAlignment'],
 
-    flexGrow: 1,
-    backgroundColor: variables.backgroundColor,
+    '.transparent': {
+      backgroundColor: 'transparent',
+    },
+
+    flex: 1,
+    backgroundColor: 'transparent',
   },
 };
