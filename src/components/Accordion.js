@@ -12,8 +12,8 @@ class Accordion extends Component {
   };
 
   static propTypes = {
-    renderHeader: PropTypes.element.isRequired,
-    renderContent: PropTypes.element.isRequired,
+    renderHeader: PropTypes.func.isRequired,
+    renderContent: PropTypes.func.isRequired,
     easing: PropTypes.string,
     duration: PropTypes.number,
     expanded: PropTypes.bool,
@@ -79,11 +79,11 @@ class Accordion extends Component {
           activeOpacity={0.8}
           onPress={this.onPress}
         >
-          {props.renderHeader}
+          {props.renderHeader(this.state.visible)}
         </TouchableOpacity>
         <Animated.View style={animatedViewStyle}>
           <View ref={ref => { this.contentRef = ref; }} style={this.props.style.content}>
-            {props.renderContent}
+            {props.renderContent(this.state.visible)}
           </View>
         </Animated.View>
       </View>
