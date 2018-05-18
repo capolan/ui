@@ -8,11 +8,9 @@ setDefaultThemeStyle();
 export { getTheme, defaultVariables };
 
 // Components
+export { NavigationHeader } from './components/NavigationHeader';
 export { View } from './components/View';
 export { Screen } from './components/Screen';
-export { NavigationHeader } from './components/NavigationHeader';
-export { FormGroup } from './components/FormGroup';
-export { TextInput } from './components/TextInput';
 
 export {
   Heading,
@@ -23,8 +21,12 @@ export {
   Label,
 } from './components/Text';
 
+export { Accordion } from './components/Accordion';
 export { Button } from './components/Button';
-export { Switch } from './components/Switch';
 export { Checkbox } from './components/Checkbox';
-export { Radio } from './components/Radio';
+export { Divider } from './components/Divider';
+export { FormGroup } from './components/FormGroup';
 export { Icon } from './components/Icon';
+export { Radio } from './components/Radio';
+export { Switch } from './components/Switch';
+export { TextInput } from './components/TextInput';

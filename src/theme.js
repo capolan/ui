@@ -5,17 +5,18 @@ import { INCLUDE, createVariations } from '@shoutem/theme';
 import { sizeVariants, defaultVariables } from './themes/variables';
 
 // Themes
-import viewTheme from './themes/view';
-import screenTheme from './themes/screen';
-import navigationHeaderTheme from './themes/navigationHeader';
-import textTheme from './themes/text';
-import formGroupTheme from './themes/formGroup';
-import textInputTheme from './themes/textInput';
+import accordionTheme from './themes/accordion';
 import buttonTheme from './themes/button';
-import switchTheme from './themes/switch';
 import checkboxTheme from './themes/checkbox';
-import radioTheme from './themes/radio';
+import formGroupTheme from './themes/formGroup';
 import iconTheme from './themes/icon';
+import navigationHeaderTheme from './themes/navigationHeader';
+import radioTheme from './themes/radio';
+import screenTheme from './themes/screen';
+import switchTheme from './themes/switch';
+import textTheme from './themes/text';
+import textInputTheme from './themes/textInput';
+import viewTheme from './themes/view';
 
 export default (variables = defaultVariables) => ({
   guttersPadding: {
@@ -152,6 +153,9 @@ export default (variables = defaultVariables) => ({
       [INCLUDE]: ['fillParent'],
     },
   },
+
+  // Accordion
+  ...accordionTheme,
 
   // View
   ...viewTheme,

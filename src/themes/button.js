@@ -1,6 +1,5 @@
 import { INCLUDE } from '@shoutem/theme';
 import { defaultVariables as variables } from './variables';
-import tinycolor2 from 'tinycolor2';
 
 export default {
   'lh.ui.Button': {

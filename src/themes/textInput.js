@@ -5,6 +5,10 @@ export default {
   'lh.ui.TextInput': {
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
+    'lh.ui.Text': {
+      ...variables.textInput.text,
+    },
+
     minHeight: 52,
     paddingVertical: variables.smallGutter,
     paddingHorizontal: variables.mediumGutter,
@@ -14,9 +18,5 @@ export default {
     placeholderTextColor: variables.textInput.placeholderTextColor,
     backgroundColor: variables.textInput.backgroundColor,
     underlineColorAndroid: 'transparent',
-
-    'lh.ui.Text': {
-      ...variables.textInput.text,
-    },
   },
 };
