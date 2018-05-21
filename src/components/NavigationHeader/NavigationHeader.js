@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StatusBar, Platform, View } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView, withNavigation } from 'react-navigation';
 import * as _ from 'lodash';
 import color from 'tinycolor2';
 
@@ -16,7 +16,7 @@ class NavigationHeader extends Component {
   };
 
   static propTypes = {
-    navigation: PropTypes.object.isRequired,
+    navigation: PropTypes.object,
     leftComponent: PropTypes.node,
     centerComponent: PropTypes.node,
     rightComponent: PropTypes.node,
@@ -55,7 +55,7 @@ class NavigationHeader extends Component {
     this.setStatusBarStyle(backgroundColor);
 
     return (
-      <SafeAreaView style={style.container} key={id}>
+      <SafeAreaView key={id} style={style.container} forceInset={{ top: 'always' }}>
         <View style={style.componentsContainer}>
           <View style={style.leftComponent}>{leftComponent}</View>
           <View style={style.centerComponent}>{centerComponent}</View>
@@ -66,8 +66,9 @@ class NavigationHeader extends Component {
   }
 }
 
+const NavigatedNavigationHeader = withNavigation(NavigationHeader);
 const AnimatedNavigationHeader = connectAnimation(
-  composeComponents(NavigationHeader)
+  composeComponents(NavigatedNavigationHeader)
 );
 const StyledNavigationHeader = connectStyle('lh.ui.NavigationHeader')(AnimatedNavigationHeader);
 
