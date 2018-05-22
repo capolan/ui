@@ -58,7 +58,6 @@ export default {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    alignSelf: 'flex-start',
     paddingHorizontal: variables.mediumGutter,
     borderWidth: variables.button.borderWidth,
     borderColor: variables.button.borderColor,
