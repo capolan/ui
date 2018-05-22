@@ -52,12 +52,14 @@ export default {
     },
 
     'lh.ui.Icon': {
-      marginHorizontal: variables.mediumGutter,
+      marginRight: variables.mediumGutter,
     },
 
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'flex-start',
+    paddingHorizontal: variables.mediumGutter,
     borderWidth: variables.button.borderWidth,
     borderColor: variables.button.borderColor,
     backgroundColor: variables.button.backgroundColor,
