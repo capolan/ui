@@ -11,7 +11,8 @@ export default {
 
     '.dark': {
       container: {
-        backgroundColor: '#000',
+        borderBottomColor: 'transparent',
+        backgroundColor: variables.darkColor,
       },
 
       'lh.ui.Title': {
@@ -50,7 +51,6 @@ export default {
       flex: 1,
       alignSelf: 'center',
       alignItems: 'center',
-      marginBottom: 0,
     },
 
     rightComponent: {
