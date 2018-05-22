@@ -6,6 +6,7 @@ import { sizeVariants, defaultVariables } from './themes/variables';
 
 // Themes
 import accordionTheme from './themes/accordion';
+import badgeTheme from './themes/badge';
 import buttonTheme from './themes/button';
 import checkboxTheme from './themes/checkbox';
 import formGroupTheme from './themes/formGroup';
@@ -16,6 +17,7 @@ import screenTheme from './themes/screen';
 import switchTheme from './themes/switch';
 import textTheme from './themes/text';
 import textInputTheme from './themes/textInput';
+import timestampTheme from './themes/timestamp';
 import viewTheme from './themes/view';
 
 export default (variables = defaultVariables) => ({
@@ -157,6 +159,9 @@ export default (variables = defaultVariables) => ({
   // Accordion
   ...accordionTheme,
 
+  // Badge
+  ...badgeTheme,
+
   // View
   ...viewTheme,
 
@@ -189,4 +194,7 @@ export default (variables = defaultVariables) => ({
 
   // Icon Button
   ...iconTheme,
+
+  // Timestamp
+  ...timestampTheme,
 });

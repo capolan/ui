@@ -22,6 +22,7 @@ export {
 } from './components/Text';
 
 export { Accordion } from './components/Accordion';
+export { Badge } from './components/Badge';
 export { Button } from './components/Button';
 export { Checkbox } from './components/Checkbox';
 export { Divider } from './components/Divider';
@@ -30,3 +31,4 @@ export { Icon } from './components/Icon';
 export { Radio } from './components/Radio';
 export { Switch } from './components/Switch';
 export { TextInput } from './components/TextInput';
+export { Timestamp } from './components/Timestamp';
