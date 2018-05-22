@@ -8,13 +8,14 @@ export const sizeVariants = [
   '', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical',
 ];
 
-export const defaultVariables = {
+const baseVariables = {
   fontFamily: '',
   featuredColor: '#8854D0',
   backgroundColor: '#f2f2f2',
   paperColor: '#fff',
   darkColor: '#243447',
-  shadowColor: 'rgba(0, 0, 0, 0.1)',
+  textColor: '#243447',
+  shadowColor: 'rgba(0, 0, 0, 0.3)',
 
   successColor: '#20BF6B',
   dangerColor: '#EB3B5A',
@@ -26,6 +27,10 @@ export const defaultVariables = {
   mediumGutter: 16,
   largeGutter: 24,
   extraLargeGutter: 32,
+};
+
+export const defaultVariables = {
+  ...baseVariables,
 
   // Typography
   typography: {
@@ -33,19 +38,19 @@ export const defaultVariables = {
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontSize: 25,
-      color: '#243447',
+      color: baseVariables.textColor,
     },
     title: {
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontSize: 20,
-      color: '#243447',
+      color: baseVariables.textColor,
     },
     subtitle: {
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontSize: 15,
-      color: '#243447',
+      color: baseVariables.textColor,
     },
     caption: {
       fontStyle: 'normal',
@@ -57,7 +62,7 @@ export const defaultVariables = {
       fontStyle: 'normal',
       fontWeight: 'normal',
       fontSize: 15,
-      color: '#243447',
+      color: baseVariables.textColor,
     },
   },
 
@@ -65,20 +70,20 @@ export const defaultVariables = {
   formGroup: {
     borderWidth: 1,
     borderColor: '#f4f6f8',
-    backgroundColor: '#fff',
+    backgroundColor: baseVariables.paperColor,
   },
 
   // TextInput
   textInput: {
     text: {
-      color: '#243447',
+      color: baseVariables.textColor,
     },
 
-    selectionColor: '#243447',
+    selectionColor: baseVariables.textColor,
     borderWidth: 1,
     borderColor: '#f4f6f8',
-    backgroundColor: '#fff',
-    placeholderTextColor: changeColorAlpha('#243447', 0.5),
+    backgroundColor: baseVariables.paperColor,
+    placeholderTextColor: changeColorAlpha(baseVariables.textColor, 0.5),
   },
 
   // Label
@@ -86,7 +91,16 @@ export const defaultVariables = {
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: 14,
-    color: '#243447',
+    color: baseVariables.textColor,
+  },
+
+  // Badge
+  badge: {
+    text: {
+      fontSize: 12,
+      color: baseVariables.paperColor,
+    },
+    backgroundColor: baseVariables.featuredColor,
   },
 
   // Button
@@ -95,31 +109,31 @@ export const defaultVariables = {
       fontStyle: 'normal',
       fontWeight: 'bold',
       fontSize: 15,
-      color: '#fff',
+      color: baseVariables.paperColor,
     },
 
     borderWidth: 1,
-    borderColor: '#8854D0',
-    backgroundColor: '#8854D0',
-    underlayColor: changeColorAlpha('#8854D0', 0.5),
+    borderColor: baseVariables.featuredColor,
+    backgroundColor: baseVariables.featuredColor,
+    underlayColor: changeColorAlpha(baseVariables.featuredColor, 0.5),
   },
 
   // Switch
   switch: {
-    activeBackgroundColor: '#8854D0',
-    inativeBackgroundColor: inverseColorBrightnessForAmount('#fff', 15),
+    activeBackgroundColor: baseVariables.featuredColor,
+    inativeBackgroundColor: inverseColorBrightnessForAmount(baseVariables.paperColor, 15),
   },
 
   // Checkbox
   checkbox: {
-    activeBackgroundColor: '#8854D0',
-    inativeBackgroundColor: inverseColorBrightnessForAmount('#fff', 15),
+    activeBackgroundColor: baseVariables.featuredColor,
+    inativeBackgroundColor: inverseColorBrightnessForAmount(baseVariables.paperColor, 15),
   },
 
   // Radio
   radio: {
-    activeBackgroundColor: '#8854D0',
-    inativeBackgroundColor: inverseColorBrightnessForAmount('#fff', 15),
+    activeBackgroundColor: baseVariables.featuredColor,
+    inativeBackgroundColor: inverseColorBrightnessForAmount(baseVariables.paperColor, 15),
   },
 
   // Navigation
@@ -127,11 +141,11 @@ export const defaultVariables = {
     title: {},
 
     icons: {
-      color: '#243447',
+      color: baseVariables.textColor,
     },
 
     height: 60,
-    backgroundColor: '#fff',
+    backgroundColor: baseVariables.paperColor,
     borderBottomColor: '#f4f4f4',
     borderBottomWidth: 1,
   },
