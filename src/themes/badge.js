@@ -24,8 +24,9 @@ export default {
       backgroundColor: variables.badge.backgroundColor,
     },
 
-    // flexDirection: 'column',
     position: 'relative',
-    alignSelf: 'flex-start',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 };
