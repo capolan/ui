@@ -138,8 +138,6 @@ export const defaultVariables = {
 
   // Navigation
   navigation: {
-    title: {},
-
     icons: {
       color: baseVariables.textColor,
     },

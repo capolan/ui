@@ -1,7 +1,6 @@
 import { INCLUDE } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
-export default {
+export default (variables) => ({
   'lh.ui.View': {
     [INCLUDE]: ['commonVariants', 'guttersPadding'],
 
@@ -52,4 +51,4 @@ export default {
       alignSelf: 'center',
     },
   },
-};
+});

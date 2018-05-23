@@ -1,7 +1,6 @@
 import { INCLUDE } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
-export default {
+export default (variables) => ({
   'lh.ui.Accordion': {
     [INCLUDE]: ['guttersMargin'],
 
@@ -9,4 +8,4 @@ export default {
 
     overflow: 'hidden',
   }
-};
+});

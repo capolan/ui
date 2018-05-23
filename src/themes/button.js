@@ -1,7 +1,6 @@
 import { INCLUDE } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
-export default {
+export default (variables) => ({
   'lh.ui.Button': {
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
@@ -57,6 +56,7 @@ export default {
 
     flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     justifyContent: 'center',
     paddingHorizontal: variables.mediumGutter,
     borderWidth: variables.button.borderWidth,
@@ -64,4 +64,4 @@ export default {
     backgroundColor: variables.button.backgroundColor,
     underlayColor: variables.button.underlayColor,
   },
-};
+});

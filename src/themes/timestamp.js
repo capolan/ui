@@ -1,10 +1,9 @@
 import { INCLUDE, createSharedStyle } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
-export default {
+export default (variables) => ({
   'lh.ui.Timestamp': {
     [INCLUDE]: ['guttersMargin'],
 
     ...createSharedStyle(['lh.ui.Text']),
   }
-};
+});

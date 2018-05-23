@@ -1,7 +1,6 @@
 import { INCLUDE } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
-export default {
+export default (variables) => ({
   'lh.ui.Checkbox': {
     [INCLUDE]: ['guttersMargin'],
 
@@ -28,4 +27,4 @@ export default {
       },
     },
   },
-};
+});

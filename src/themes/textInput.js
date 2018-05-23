@@ -1,7 +1,6 @@
 import { INCLUDE } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
-export default {
+export default (variables) => ({
   'lh.ui.TextInput': {
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
@@ -19,4 +18,4 @@ export default {
     backgroundColor: variables.textInput.backgroundColor,
     underlineColorAndroid: 'transparent',
   },
-};
+});

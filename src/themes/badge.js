@@ -1,9 +1,6 @@
 import { INCLUDE } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
-console.log(variables.badge);
-
-export default {
+export default (variables) => ({
   'lh.ui.Badge': {
     [INCLUDE]: ['guttersMargin'],
 
@@ -29,4 +26,4 @@ export default {
     justifyContent: 'center',
     alignItems: 'center',
   }
-};
+});

@@ -1,7 +1,6 @@
 import { INCLUDE } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
-export default {
+export default (variables) => ({
   'lh.ui.FormGroup': {
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
@@ -68,4 +67,4 @@ export default {
       paddingHorizontal: variables.mediumGutter,
     },
   },
-};
+});

@@ -1,9 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { INCLUDE, createVariations } from '@shoutem/theme';
 
-// Variables
-import { sizeVariants, defaultVariables } from './themes/variables';
-
 // Themes
 import accordionTheme from './themes/accordion';
 import badgeTheme from './themes/badge';
@@ -19,6 +16,9 @@ import textTheme from './themes/text';
 import textInputTheme from './themes/textInput';
 import timestampTheme from './themes/timestamp';
 import viewTheme from './themes/view';
+
+// Variables
+import { sizeVariants, defaultVariables } from './variables';
 
 export default (variables = defaultVariables) => ({
   guttersPadding: {
@@ -157,44 +157,44 @@ export default (variables = defaultVariables) => ({
   },
 
   // Accordion
-  ...accordionTheme,
+  ...accordionTheme(variables),
 
   // Badge
-  ...badgeTheme,
+  ...badgeTheme(variables),
 
   // View
-  ...viewTheme,
+  ...viewTheme(variables),
 
   // Screen
-  ...screenTheme,
+  ...screenTheme(variables),
 
   // Navigation Header
-  ...navigationHeaderTheme,
+  ...navigationHeaderTheme(variables),
 
   // Heading, Title, Subtitle, Caption, Text, Label
-  ...textTheme,
+  ...textTheme(variables),
 
   // FormGroup
-  ...formGroupTheme,
+  ...formGroupTheme(variables),
 
   // TextInput
-  ...textInputTheme,
+  ...textInputTheme(variables),
 
   // Button
-  ...buttonTheme,
+  ...buttonTheme(variables),
 
   // Switch Button
-  ...switchTheme,
+  ...switchTheme(variables),
 
   // Checkbox Button
-  ...checkboxTheme,
+  ...checkboxTheme(variables),
 
   // Radio Button
-  ...radioTheme,
+  ...radioTheme(variables),
 
   // Icon Button
-  ...iconTheme,
+  ...iconTheme(variables),
 
   // Timestamp
-  ...timestampTheme,
+  ...timestampTheme(variables),
 });
