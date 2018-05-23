@@ -1,5 +1,4 @@
 import { INCLUDE } from '@shoutem/theme';
-import { defaultVariables as variables } from './variables';
 
 export default (variables) => ({
   'lh.ui.Icon': {
