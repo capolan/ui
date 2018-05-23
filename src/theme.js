@@ -18,7 +18,7 @@ import timestampTheme from './themes/timestamp';
 import viewTheme from './themes/view';
 
 // Variables
-export { sizeVariants, defaultVariables } from './variables';
+import { sizeVariants, defaultVariables } from './variables';
 
 export default (variables = defaultVariables) => ({
   guttersPadding: {
@@ -198,3 +198,5 @@ export default (variables = defaultVariables) => ({
   // Timestamp
   ...timestampTheme(variables),
 });
+
+export { defaultVariables };
