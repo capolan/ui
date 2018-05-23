@@ -1,13 +1,10 @@
-import { INCLUDE } from '@shoutem/theme';
+import { INCLUDE, changeColorAlpha } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Button': {
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
     '.clear': {
-      backgroundColor: 'transparent',
-      borderWidth: 0,
-
       '.shadow': {
         shadowOpacity: 0,
         shadowOffset: { width: 0, height: 0 },
@@ -18,6 +15,27 @@ export default (variables) => ({
       'lh.ui.Text': {
         color: variables.darkColor,
       }
+
+      backgroundColor: 'transparent',
+      borderWidth: 0,
+    },
+
+    '.dark': {
+      'lh.ui.Text': {
+        color: variables.paperColor,
+      },
+
+      backgroundColor: variables.darkColor,
+      underlayColor: changeColorAlpha(variables.darkColor, 0.5),
+    },
+
+    '.paper': {
+      'lh.ui.Text': {
+        color: variables.darkColor,
+      },
+
+      backgroundColor: variables.paperColor,
+      underlayColor: changeColorAlpha(variables.paperColor, 0.5),
     },
 
     '.shadow': {

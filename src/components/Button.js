@@ -10,17 +10,15 @@ class Button extends Component {
   };
 
   render() {
-    const style = {
-      ...this.props.style,
-    };
+    const { style, ...props } = this.props;
     delete style.underlayColor;
 
     return (
       <TouchableHighlight
-        {...this.props}
+        {...props}
         style={style}
         underlayColor={this.props.style.underlayColor}
-        activeOpacity={0.8}
+        activeOpacity={0.9}
       />
     );
   }
