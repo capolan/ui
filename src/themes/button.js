@@ -14,7 +14,7 @@ export default (variables) => ({
 
       'lh.ui.Text': {
         color: variables.darkColor,
-      }
+      },
 
       backgroundColor: 'transparent',
       borderWidth: 0,
