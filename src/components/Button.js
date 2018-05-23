@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableHighlight } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
 import { connectAnimation } from '@shoutem/animation';
 
 class Button extends Component {
   static propTypes = {
-    ...TouchableOpacity.propTypes,
+    ...TouchableHighlight.propTypes,
   };
 
   render() {
@@ -16,7 +16,7 @@ class Button extends Component {
     delete style.underlayColor;
 
     return (
-      <TouchableOpacity
+      <TouchableHighlight
         {...this.props}
         style={style}
         underlayColor={this.props.style.underlayColor}

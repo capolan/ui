@@ -28,12 +28,6 @@ export default (variables) => ({
       elevation: 1,
     },
 
-    '.full-width': {
-      flex: 1,
-      alignSelf: 'stretch',
-      height: 52,
-    },
-
     '.muted': {
       'lh.ui.Icon': {
         opacity: 0.5,
@@ -56,7 +50,6 @@ export default (variables) => ({
 
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'flex-start',
     justifyContent: 'center',
     paddingHorizontal: variables.mediumGutter,
     borderWidth: variables.button.borderWidth,
