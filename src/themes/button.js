@@ -56,6 +56,10 @@ export default (variables) => ({
       },
     },
 
+    '.full-width': {
+      alignSelf: 'stretch',
+    },
+
     'lh.ui.Text': {
       letterSpacing: 1,
       marginVertical: variables.mediumGutter,
@@ -73,6 +77,5 @@ export default (variables) => ({
     borderWidth: variables.button.borderWidth,
     borderColor: variables.button.borderColor,
     backgroundColor: variables.button.backgroundColor,
-    underlayColor: variables.button.underlayColor,
   },
 });

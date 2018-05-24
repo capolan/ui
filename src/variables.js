@@ -115,7 +115,6 @@ export const defaultVariables = {
     borderWidth: 1,
     borderColor: baseVariables.featuredColor,
     backgroundColor: baseVariables.featuredColor,
-    underlayColor: changeColorAlpha(baseVariables.featuredColor, 0.5),
   },
 
   // Switch

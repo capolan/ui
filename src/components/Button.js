@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableHighlight } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
 import { connectAnimation } from '@shoutem/animation';
@@ -10,15 +10,13 @@ class Button extends Component {
   };
 
   render() {
-    const { style, ...props } = this.props;
-    delete style.underlayColor;
+    const { style } = this.props;
 
     return (
-      <TouchableHighlight
-        {...props}
+      <TouchableOpacity
+        {...this.props}
         style={style}
-        underlayColor={this.props.style.underlayColor}
-        activeOpacity={0.9}
+        activeOpacity={0.8}
       />
     );
   }
