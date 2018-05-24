@@ -6,7 +6,7 @@ import { connectAnimation } from '@shoutem/animation';
 
 class Button extends Component {
   static propTypes = {
-    ...TouchableHighlight.propTypes,
+    ...TouchableOpacity.propTypes,
   };
 
   render() {
