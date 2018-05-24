@@ -26,7 +26,6 @@ export default (variables) => ({
       },
 
       backgroundColor: variables.darkColor,
-      underlayColor: changeColorAlpha(variables.darkColor, 0.5),
     },
 
     '.paper': {
@@ -35,7 +34,6 @@ export default (variables) => ({
       },
 
       backgroundColor: variables.paperColor,
-      underlayColor: changeColorAlpha(variables.paperColor, 0.5),
     },
 
     '.shadow': {
