@@ -16,7 +16,6 @@ class NavigationHeader extends Component {
   };
 
   static propTypes = {
-    navigation: PropTypes.object,
     leftComponent: PropTypes.node,
     centerComponent: PropTypes.node,
     rightComponent: PropTypes.node,
@@ -66,12 +65,12 @@ class NavigationHeader extends Component {
   }
 }
 
-const NavigatedNavigationHeader = withNavigation(NavigationHeader);
-const AnimatedNavigationHeader = connectAnimation(
-  composeComponents(NavigatedNavigationHeader)
-);
+const AnimatedNavigationHeader = connectAnimation(NavigationHeader);
 const StyledNavigationHeader = connectStyle('lh.ui.NavigationHeader')(AnimatedNavigationHeader);
+const ComposedNavigationHeader = withNavigation(
+  composeComponents(StyledNavigationHeader)
+);
 
 export {
-  StyledNavigationHeader as NavigationHeader,
+  ComposedNavigationHeader as NavigationHeader,
 };

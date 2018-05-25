@@ -17,7 +17,7 @@ const components = {
   hasDrawer: (value, props) => {
     const leftComponent = value ? (
       <Button styleName="clear" onPress={() => props.navigation.toggleDrawer()}>
-        <Icon name="menu" animationName="props.animationName" />
+        <Icon name="menu" animationName={props.animationName} />
       </Button>
     ) : null;
 
@@ -26,7 +26,7 @@ const components = {
   hasHistory: (value, props) => {
     const leftComponent = value ? (
       <Button styleName="clear" onPress={() => props.navigation.goBack()}>
-        <Icon name="arrow-left" animationName="props.animationName" />
+        <Icon name="arrow-left" animationName={props.animationName} />
       </Button>
     ) : null;
 
