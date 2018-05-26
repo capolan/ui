@@ -2,7 +2,7 @@ import { INCLUDE, changeColorAlpha } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Button': {
-    [INCLUDE]: ['commonVariants', 'guttersMargin'],
+    [INCLUDE]: ['commonVariants', 'selfFlexAlignment', 'guttersMargin'],
 
     '.clear': {
       '.shadow': {
