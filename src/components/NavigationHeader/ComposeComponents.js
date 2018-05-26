@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { DrawerActions } from 'react-navigation';
 
 import { Button } from '../Button';
 import { Title } from '../Text';
@@ -16,7 +17,10 @@ const components = {
   }),
   hasDrawer: (value, props) => {
     const leftComponent = value ? (
-      <Button styleName="clear" onPress={() => props.navigation.toggleDrawer()}>
+      <Button
+        styleName="clear"
+        onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())}
+      >
         <Icon name="menu" animationName={props.animationName} />
       </Button>
     ) : null;
@@ -25,7 +29,10 @@ const components = {
   },
   hasHistory: (value, props) => {
     const leftComponent = value ? (
-      <Button styleName="clear" onPress={() => props.navigation.goBack()}>
+      <Button
+        styleName="clear"
+        onPress={() => props.navigation.goBack(null)}
+      >
         <Icon name="arrow-left" animationName={props.animationName} />
       </Button>
     ) : null;
