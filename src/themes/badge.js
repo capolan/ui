@@ -2,7 +2,7 @@ import { INCLUDE } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Badge': {
-    [INCLUDE]: ['guttersMargin'],
+    [INCLUDE]: ['selfFlexAlignment', 'guttersMargin'],
 
     'lh.ui.Text': {
       ...variables.badge.text,
