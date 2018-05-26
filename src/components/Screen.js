@@ -7,18 +7,34 @@ import { connectStyle } from '@shoutem/theme';
 import { connectAnimation } from '@shoutem/animation';
 
 class Screen extends Component {
+  static defaultProps = {
+    scrolled: true
+  }
+
   static propTypes = {
     ...ScrollViewProps,
-    renderNavigationHeader: PropTypes.element,
+    navigationHeaderComponent: PropTypes.element,
+    scrolled: PropTypes.bool
   }
 
   renderNavigationHeader = () => {
-    if (!this.props.renderNavigationHeader) return null;
-    return this.props.renderNavigationHeader;
+    if (!this.props.navigationHeaderComponent) return null;
+    return this.props.navigationHeaderComponent;
   }
 
   render() {
     const navigationHeader = this.renderNavigationHeader();
+
+    if (!this.props.scrolled) {
+      return (
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+          {navigationHeader}
+          <SafeAreaView style={this.props.style} forceInset={{ top: 'always' }}>
+            {this.props.children}
+          </SafeAreaView>
+        </KeyboardAvoidingView>
+      );
+    }
 
     return (
       <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
