@@ -142,6 +142,20 @@ export default (variables = defaultVariables) => ({
     },
   },
 
+  selfFlexAlignment: {
+    '.start': {
+      alignSelf: 'flex-start',
+    },
+
+    '.center': {
+      alignSelf: 'center',
+    },
+
+    '.end': {
+      alignSelf: 'flex-end',
+    },
+  },
+
   featuredBackground: {
     backgroundColor: variables.featuredColor,
   },
