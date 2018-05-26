@@ -15,12 +15,29 @@ export default (variables) => ({
       },
 
       'lh.ui.Title': {
-        color: '#fff',
+        color: variables.paperColor,
       },
 
       'lh.ui.Button': {
         'lh.ui.Icon': {
-          color: '#fff',
+          color: variables.paperColor,
+        },
+      },
+    },
+
+    '.paper': {
+      container: {
+        borderBottomColor: 'transparent',
+        backgroundColor: variables.paperColor,
+      },
+
+      'lh.ui.Title': {
+        color: variables.darkColor,
+      },
+
+      'lh.ui.Button': {
+        'lh.ui.Icon': {
+          color: variables.darkColor,
         },
       },
     },
