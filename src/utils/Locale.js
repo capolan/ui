@@ -1,18 +1,20 @@
 import { DangerZone } from 'expo';
+import moment from 'moment/min/moment-with-locales';
+import * as _ from 'lodash';
 const { Localization } = DangerZone;
 
 const normalizeLocale = (locale) => {
-  let locales = locale.replace(/_/g, '-').split('-');
-  let normalizedLocale = locales[0];
-  if (locales.length > 1) {
-    normalizedLocale += '-' + locales[1].toUpperCase();
+  const fallback = 'en';
+  const availableLocales = moment.locales();
+  const normalizedLocale = locale.replace(/_/g, '-').toLowerCase();
+  if (!_.includes(availableLocales, normalizedLocale)) {
+    return fallback;
   }
   return normalizedLocale;
 }
 
 const getCurrentLocale = async () => {
-  let locale = 'pt-BR';
-  locale = await Localization.getCurrentLocaleAsync();
+  const locale = await Localization.getCurrentLocaleAsync();
   return normalizeLocale(locale);
 }
 
