@@ -85,6 +85,7 @@ export default (variables) => ({
 
       'lh.ui.Icon': {
         color: variables.navigation.icons.color,
+        marginHorizontal: variables.smallGutter,
       },
     }
   },
