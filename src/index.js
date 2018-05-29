@@ -19,6 +19,7 @@ export {
 export { Accordion } from './components/Accordion';
 export { Badge } from './components/Badge';
 export { Button } from './components/Button';
+export { Card } from './components/Card';
 export { Checkbox } from './components/Checkbox';
 export { DatePicker } from './components/DatePicker';
 export { Divider } from './components/Divider';

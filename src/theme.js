@@ -5,6 +5,7 @@ import { INCLUDE, createVariations } from '@shoutem/theme';
 import accordionTheme from './themes/accordion';
 import badgeTheme from './themes/badge';
 import buttonTheme from './themes/button';
+import cardTheme from './themes/card';
 import checkboxTheme from './themes/checkbox';
 import datepickerTheme from './themes/datepicker';
 import formGroupTheme from './themes/formGroup';
@@ -189,6 +190,9 @@ export default (variables = defaultVariables) => ({
 
   // Button
   ...buttonTheme(variables),
+
+  // Card
+  ...cardTheme(variables),
 
   // Checkbox Button
   ...checkboxTheme(variables),
