@@ -46,6 +46,12 @@ class DatePicker extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (!_.isEqual(prevProps.markedDates, this.props.markedDates)) {
+      this.setState({ markedDates: this.props.markedDates });
+    }
+  }
+
   setLocales = async () => {
     const locale = await getCurrentLocale();
     LocaleConfig.locales['en'] = LocaleConfig.locales['']; // set en as fallback
