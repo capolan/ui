@@ -2,8 +2,8 @@ import { INCLUDE, createSharedStyle } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Timestamp': {
-    [INCLUDE]: ['guttersMargin'],
+    [INCLUDE]: ['guttersMargin', 'text'],
 
-    ...createSharedStyle(['lh.ui.Text']),
+    ...variables.timestamp,
   }
 });
