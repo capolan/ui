@@ -1,7 +1,7 @@
 {
   "name": "@lighthouseit/ui",
   "description": "A Customizable and Modular Components Library for React Native apps",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "main": "src/index.js",
   "repository": "https://github.com/LighthouseIT/ui",
   "bugs": {
@@ -15,7 +15,9 @@
     "@shoutem/theme": "^0.11.1",
     "lodash": "^4.17.10",
     "moment": "^2.22.1",
+    "moment-range": "^4.0.1",
     "prop-types": "^15.6.1",
+    "react-native-calendars": "^1.19.3",
     "react-native-vector-icons": "^4.6.0",
     "tinycolor2": "^1.4.1"
   },

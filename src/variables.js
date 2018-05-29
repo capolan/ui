@@ -16,6 +16,7 @@ const baseVariables = {
   darkColor: '#243447',
   textColor: '#243447',
   shadowColor: 'rgba(0, 0, 0, 0.3)',
+  overlayColor: 'rgba(255, 255, 255, 0.8)',
 
   successColor: '#20BF6B',
   dangerColor: '#EB3B5A',
@@ -133,6 +134,14 @@ export const defaultVariables = {
   radio: {
     activeBackgroundColor: baseVariables.featuredColor,
     inativeBackgroundColor: inverseColorBrightnessForAmount(baseVariables.paperColor, 15),
+  },
+
+  // Timestamp
+  timestamp: {
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 15,
+    color: baseVariables.textColor,
   },
 
   // Navigation

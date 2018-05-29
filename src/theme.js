@@ -6,8 +6,10 @@ import accordionTheme from './themes/accordion';
 import badgeTheme from './themes/badge';
 import buttonTheme from './themes/button';
 import checkboxTheme from './themes/checkbox';
+import datepickerTheme from './themes/datepicker';
 import formGroupTheme from './themes/formGroup';
 import iconTheme from './themes/icon';
+import modalTheme from './themes/modal';
 import navigationHeaderTheme from './themes/navigationHeader';
 import radioTheme from './themes/radio';
 import screenTheme from './themes/screen';
@@ -170,47 +172,62 @@ export default (variables = defaultVariables) => ({
     },
   },
 
+  // Base Shadow
+  baseShadow: {
+    shadowColor: variables.shadowColor,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 1,
+  },
+
   // Accordion
   ...accordionTheme(variables),
 
   // Badge
   ...badgeTheme(variables),
 
-  // View
-  ...viewTheme(variables),
-
-  // Screen
-  ...screenTheme(variables),
-
-  // Navigation Header
-  ...navigationHeaderTheme(variables),
-
-  // Heading, Title, Subtitle, Caption, Text, Label
-  ...textTheme(variables),
-
-  // FormGroup
-  ...formGroupTheme(variables),
-
-  // TextInput
-  ...textInputTheme(variables),
-
   // Button
   ...buttonTheme(variables),
-
-  // Switch Button
-  ...switchTheme(variables),
 
   // Checkbox Button
   ...checkboxTheme(variables),
 
-  // Radio Button
-  ...radioTheme(variables),
+  // DatePicker
+  ...datepickerTheme(variables),
+
+  // FormGroup
+  ...formGroupTheme(variables),
 
   // Icon Button
   ...iconTheme(variables),
 
+  // Modal
+  ...modalTheme(variables),
+
+  // Navigation Header
+  ...navigationHeaderTheme(variables),
+
+  // Radio Button
+  ...radioTheme(variables),
+
+  // Screen
+  ...screenTheme(variables),
+
+  // Switch Button
+  ...switchTheme(variables),
+
+  // Heading, Title, Subtitle, Caption, Text, Label
+  ...textTheme(variables),
+
+  // TextInput
+  ...textInputTheme(variables),
+
   // Timestamp
   ...timestampTheme(variables),
+
+  // View
+  ...viewTheme(variables),
 });
 
 export { defaultVariables };
