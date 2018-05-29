@@ -4,7 +4,7 @@ import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 import _ from 'lodash';
 import { CalendarList, LocaleConfig } from 'react-native-calendars';
-import { View, Button, Text } from '../';
+import { Card, View, Button, Text } from '../';
 import { getCurrentLocale } from '../utils';
 import * as calendarLocales from '../locales/calendar';
 
@@ -14,6 +14,7 @@ const moment = extendMoment(Moment);
 
 class DatePicker extends Component {
   static defaultProps = {
+    markedDates: {},
     doneText: 'Done',
     clearText: 'Clear',
   };
@@ -22,7 +23,6 @@ class DatePicker extends Component {
     ...CalendarList.propTypes,
     onValueChange: PropTypes.func,
     onDone: PropTypes.func,
-    onClear: PropTypes.func,
     doneText: PropTypes.string,
     clearText: PropTypes.string,
     style: PropTypes.shape({
@@ -34,16 +34,13 @@ class DatePicker extends Component {
   constructor(props) {
     super(props);
 
-    this.setLocales();
     this.state = {
-      markedDates: {},
+      markedDates: props.markedDates || {},
     };
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (!_.isEqual(nextProps.markedDates, this.props.markedDates)) {
-      this.setState({ markedDates: nextProps.markedDates });
-    }
+  componentDidMount() {
+    this.setLocales();
   }
 
   componentDidUpdate(prevProps) {
@@ -58,12 +55,11 @@ class DatePicker extends Component {
     LocaleConfig.locales['pt-br'] = calendarLocales.pt;
     LocaleConfig.locales['pt'] = calendarLocales.pt;
     LocaleConfig.defaultLocale = locale;
+    this.forceUpdate();
   }
 
-  // TODO: Reset marking when clicked day < fromDate;
+  // TODO (Donald): Reset marking when clicked day < fromDate;
   selectPeriodDate = day => {
-    const { style } = this.props;
-
     let newDates = { ...this.state.markedDates };
     const selectedDate = day.dateString;
 
@@ -77,7 +73,7 @@ class DatePicker extends Component {
         selected: true,
         startingDay: true,
         endingDay: true,
-        color: style.calendar.selectedDateColor,
+        color: this.props.style.calendar.selectedDateColor,
       };
     } else if (_.keys(newDates).length === 1) {
       const firstDate = _.keys(newDates)[0];
@@ -93,18 +89,18 @@ class DatePicker extends Component {
           newDates[date] = {
             selected: true,
             startingDay: true,
-            color: style.calendar.selectedDateColor,
+            color: this.props.style.calendar.selectedDateColor,
           };
         } else if (index === rangeArray.length - 1) {
           newDates[date] = {
             selected: true,
             endingDay: true,
-            color: style.calendar.selectedDateColor,
+            color: this.props.style.calendar.selectedDateColor,
           };
         } else {
           newDates[date] = {
             selected: true,
-            color: style.calendar.selectedDateColor,
+            color: this.props.style.calendar.selectedDateColor,
           };
         }
       });
@@ -128,10 +124,8 @@ class DatePicker extends Component {
   }
 
   clear = () => {
-    this.setState({ markedDates: null });
-    if (this.props.onClear) {
-      this.props.onClear();
-    }
+    this.setState({ markedDates: {} });
+    this.onValueChange({});
   }
 
   done = () => {
@@ -147,7 +141,7 @@ class DatePicker extends Component {
     delete style.calendar;
 
     return (
-      <View styleName="rounded-corners" style={style}>
+      <Card styleName="rounded-corners" style={style}>
         <View styleName="horizontal space-between">
           <Button styleName="clear end" onPress={this.clear}>
             <Text>{this.props.clearText}</Text>
@@ -156,12 +150,13 @@ class DatePicker extends Component {
             <Text>{this.props.doneText}</Text>
           </Button>
         </View>
+
         <CalendarList
           {...props}
           markedDates={this.state.markedDates}
           onDayPress={this.onDayPress}
         />
-      </View>
+      </Card>
     );
   }
 }
