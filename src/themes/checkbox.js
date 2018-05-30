@@ -8,15 +8,15 @@ export default (variables) => ({
       height: 24,
       width: 24,
       borderWidth: 1,
-      borderColor: variables.checkbox.inativeBackgroundColor,
+      borderColor: inverseColorBrightnessForAmount(variables.paperColor, 15),
 
       thumbAnimation(driver) {
         return {
           borderColor: driver.interpolate({
             inputRange: [0, 1],
             outputRange: [
-              variables.checkbox.inativeBackgroundColor,
-              variables.checkbox.activeBackgroundColor,
+              inverseColorBrightnessForAmount(variables.paperColor, 15),
+              variables.featuredColor,
             ],
           }),
           borderWidth: driver.interpolate({

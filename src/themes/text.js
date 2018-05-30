@@ -85,6 +85,9 @@ export default (variables) => ({
   'lh.ui.Label': {
     [INCLUDE]: ['text'],
 
-    ...variables.label,
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: variables.textColor,
   },
 });

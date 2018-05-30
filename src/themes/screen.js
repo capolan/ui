@@ -2,7 +2,7 @@ import { INCLUDE } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Screen': {
-    [INCLUDE]: ['verticalFlexAlignment'],
+    [INCLUDE]: ['verticalFlexAlignment', 'guttersPadding'],
 
     '.transparent': {
       backgroundColor: 'transparent',

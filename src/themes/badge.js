@@ -5,7 +5,8 @@ export default (variables) => ({
     [INCLUDE]: ['selfFlexAlignment', 'guttersMargin'],
 
     'lh.ui.Text': {
-      ...variables.badge.text,
+      fontSize: 12,
+      color: variables.paperColor,
     },
 
     '.dark': {
@@ -51,7 +52,7 @@ export default (variables) => ({
       alignItems: 'center',
       paddingHorizontal: variables.smallGutter,
       overflow: 'hidden',
-      backgroundColor: variables.badge.backgroundColor,
+      backgroundColor: variables.featuredColor,
     },
 
     position: 'relative',

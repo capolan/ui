@@ -43,10 +43,10 @@ export default (variables) => ({
     },
 
     container: {
-      height: variables.navigation.height,
-      backgroundColor: variables.navigation.backgroundColor,
-      borderBottomWidth: variables.navigation.borderBottomWidth,
-      borderBottomColor: variables.navigation.borderBottomColor,
+      height: 60,
+      backgroundColor: variables.backgroundColor,
+      borderBottomWidth: variables.hairlineWidth,
+      borderBottomColor: variables.lineColor,
     },
 
     componentsContainer: {
@@ -75,18 +75,14 @@ export default (variables) => ({
       alignItems: 'flex-end',
     },
 
-    'lh.ui.Title': {
-      ...variables.navigation.title,
-    },
-
     'lh.ui.Button': {
       flex: 1,
       paddingHorizontal: variables.extraSmallGutter,
 
       'lh.ui.Icon': {
-        color: variables.navigation.icons.color,
+        color: variables.textColor,
         marginHorizontal: variables.smallGutter,
       },
-    }
+    },
   },
 });

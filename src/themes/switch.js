@@ -16,8 +16,8 @@ export default (variables) => ({
           backgroundColor: driver.interpolate({
             inputRange: [0, 1],
             outputRange: [
-              variables.switch.inativeBackgroundColor,
-              variables.switch.activeBackgroundColor,
+              inverseColorBrightnessForAmount(variables.paperColor, 15),
+              variables.featuredColor,
             ],
           }),
         };

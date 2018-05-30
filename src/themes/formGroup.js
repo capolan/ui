@@ -5,9 +5,60 @@ export default (variables) => ({
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
     '.blocked': {
+      '.inline': {
+        'lh.ui.Label': {
+          flex: 1,
+          paddingBottom: 0,
+        },
+
+        'lh.ui.Text': {
+          flex: 1,
+          textAlign: 'right',
+        },
+
+        'lh.ui.TextInput': {
+          flex: 1,
+          textAlign: 'right',
+        },
+
+        'lh.ui.Switch': {
+          container: {
+            marginRight: variables.mediumGutter,
+          },
+        },
+
+        'lh.ui.Checkbox': {
+          container: {
+            marginRight: variables.mediumGutter,
+          },
+        },
+
+        'lh.ui.Radio': {
+          container: {
+            marginRight: variables.mediumGutter,
+          },
+        },
+
+        flexDirection: 'row',
+        alignItems: 'center',
+        height: 52,
+        paddingVertical: 0,
+      },
+
+      '.multiline': {
+        'lh.ui.TextInput': {
+          minHeight: 100,
+        },
+      },
+
       'lh.ui.Label': {
         borderWidth: 0,
         paddingBottom: variables.smallGutter,
+      },
+
+      'lh.ui.Text': {
+        color: variables.paperColor,
+        paddingHorizontal: variables.mediumGutter,
       },
 
       'lh.ui.TextInput': {
@@ -19,47 +70,6 @@ export default (variables) => ({
       borderColor: variables.lineColor,
       paddingVertical: variables.mediumGutter,
       backgroundColor: variables.paperColor,
-    },
-
-    '.inline': {
-      'lh.ui.Label': {
-        flex: 1,
-        paddingBottom: 0,
-      },
-
-      'lh.ui.TextInput': {
-        flex: 1,
-        textAlign: 'right',
-      },
-
-      'lh.ui.Switch': {
-        container: {
-          marginRight: variables.mediumGutter,
-        },
-      },
-
-      'lh.ui.Checkbox': {
-        container: {
-          marginRight: variables.mediumGutter,
-        },
-      },
-
-      'lh.ui.Radio': {
-        container: {
-          marginRight: variables.mediumGutter,
-        },
-      },
-
-      flexDirection: 'row',
-      alignItems: 'center',
-      height: 52,
-      paddingVertical: 0,
-    },
-
-    '.multiline': {
-      'lh.ui.TextInput': {
-        minHeight: 100,
-      },
     },
 
     'lh.ui.Label': {

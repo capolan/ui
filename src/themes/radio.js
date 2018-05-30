@@ -9,15 +9,15 @@ export default (variables) => ({
       width: 24,
       borderRadius: 12,
       borderWidth: 1,
-      borderColor: variables.radio.inativeBackgroundColor,
+      borderColor: inverseColorBrightnessForAmount(variables.paperColor, 15),
 
       thumbAnimation(driver) {
         return {
           borderColor: driver.interpolate({
             inputRange: [0, 1],
             outputRange: [
-              variables.radio.inativeBackgroundColor,
-              variables.radio.activeBackgroundColor,
+              inverseColorBrightnessForAmount(variables.paperColor, 15),
+              variables.featuredColor,
             ],
           }),
           borderWidth: driver.interpolate({

@@ -25,6 +25,7 @@ export default (variables) => ({
         color: variables.paperColor,
       },
 
+      borderWidth: 0,
       backgroundColor: variables.darkColor,
     },
 
@@ -34,6 +35,26 @@ export default (variables) => ({
       },
 
       backgroundColor: variables.paperColor,
+    },
+
+    '.success': {
+      borderColor: inverseColorBrightnessForAmount(variables.successColor, 10),
+      backgroundColor: variables.successColor,
+    },
+
+    '.danger': {
+      borderColor: inverseColorBrightnessForAmount(variables.dangerColor, 10),
+      backgroundColor: variables.dangerColor,
+    },
+
+    '.warning': {
+      borderColor: inverseColorBrightnessForAmount(variables.warningColor, 10),
+      backgroundColor: variables.warningColor,
+    },
+
+    '.info': {
+      borderColor: inverseColorBrightnessForAmount(variables.infoColor, 10),
+      backgroundColor: variables.infoColor,
     },
 
     '.shadow': {
@@ -57,7 +78,10 @@ export default (variables) => ({
     'lh.ui.Text': {
       letterSpacing: 1,
       marginVertical: variables.mediumGutter,
-      ...variables.button.text,
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      fontSize: 15,
+      color: variables.paperColor,
     },
 
     'lh.ui.Icon': {
@@ -68,8 +92,8 @@ export default (variables) => ({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: variables.mediumGutter,
-    borderWidth: variables.button.borderWidth,
-    borderColor: variables.button.borderColor,
-    backgroundColor: variables.button.backgroundColor,
+    borderWidth: variables.hairlineWidth,
+    borderColor: inverseColorBrightnessForAmount(variables.featuredColor, 10),
+    backgroundColor: variables.featuredColor,
   },
 });
