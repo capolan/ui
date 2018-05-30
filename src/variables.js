@@ -1,9 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {
-  INCLUDE,
-  inverseColorBrightnessForAmount,
-  changeColorAlpha,
-} from '@shoutem/theme';
+import { INCLUDE, changeColorAlpha } from '@shoutem/theme';
 
 export const sizeVariants = [
   '', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical',

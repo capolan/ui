@@ -1,4 +1,4 @@
-import { INCLUDE, changeColorAlpha } from '@shoutem/theme';
+import { INCLUDE, changeColorAlpha, inverseColorBrightnessForAmount } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Button': {

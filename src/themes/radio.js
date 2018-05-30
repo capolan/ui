@@ -1,4 +1,4 @@
-import { INCLUDE } from '@shoutem/theme';
+import { INCLUDE, inverseColorBrightnessForAmount } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Radio': {
