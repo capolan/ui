@@ -8,6 +8,7 @@ import buttonTheme from './themes/button';
 import cardTheme from './themes/card';
 import checkboxTheme from './themes/checkbox';
 import datepickerTheme from './themes/datepicker';
+import dividerTheme from './themes/divider';
 import formGroupTheme from './themes/formGroup';
 import iconTheme from './themes/icon';
 import modalTheme from './themes/modal';
@@ -199,6 +200,9 @@ export default (variables = defaultVariables) => ({
 
   // DatePicker
   ...datepickerTheme(variables),
+
+  // Diver
+  ...dividerTheme(variables),
 
   // FormGroup
   ...formGroupTheme(variables),
