@@ -12,23 +12,33 @@ export default (variables) => ({
       'lh.ui.Text': {
         color: variables.paperColor,
       },
-      backgroundColor: variables.darkColor,
+      count: {
+        backgroundColor: variables.darkColor,
+      },
     },
 
     '.success': {
-      backgroundColor: variables.successColor,
+      count: {
+        backgroundColor: variables.successColor,
+      },
     },
 
     '.danger': {
-      backgroundColor: variables.dangerColor,
+      count: {
+        backgroundColor: variables.dangerColor,
+      },
     },
 
     '.warning': {
-      backgroundColor: variables.warningColor,
+      count: {
+        backgroundColor: variables.warningColor,
+      },
     },
 
     '.info': {
-      backgroundColor: variables.infoColor,
+      count: {
+        backgroundColor: variables.infoColor,
+      },
     },
 
     count: {
