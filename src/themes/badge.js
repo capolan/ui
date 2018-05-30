@@ -8,6 +8,29 @@ export default (variables) => ({
       ...variables.badge.text,
     },
 
+    '.dark': {
+      'lh.ui.Text': {
+        color: variables.paperColor,
+      },
+      backgroundColor: variables.darkColor,
+    },
+
+    '.success': {
+      backgroundColor: variables.successColor,
+    },
+
+    '.danger': {
+      backgroundColor: variables.dangerColor,
+    },
+
+    '.warning': {
+      backgroundColor: variables.warningColor,
+    },
+
+    '.info': {
+      backgroundColor: variables.infoColor,
+    },
+
     count: {
       position: 'absolute',
       top: -10,
