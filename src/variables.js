@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 import {
   INCLUDE,
   inverseColorBrightnessForAmount,
@@ -10,18 +11,19 @@ export const sizeVariants = [
 
 const baseVariables = {
   fontFamily: '',
-  featuredColor: '#8854D0',
-  backgroundColor: '#f2f2f2',
+  featuredColor: '#9381ff',
+  backgroundColor: '#FEFFFC',
   paperColor: '#fff',
   darkColor: '#243447',
   textColor: '#243447',
   shadowColor: 'rgba(0, 0, 0, 0.3)',
   overlayColor: 'rgba(255, 255, 255, 0.8)',
+  lineColor: '#ced1cc',
 
-  successColor: '#20BF6B',
-  dangerColor: '#EB3B5A',
-  warningColor: '#F7B731',
-  infoColor: '#3867D6',
+  successColor: '#20bf6b',
+  dangerColor: '#eb3b5a',
+  warningColor: '#f7b731',
+  infoColor: '#3867d6',
 
   extraSmallGutter: 4,
   smallGutter: 8,
@@ -32,6 +34,8 @@ const baseVariables = {
 
 export const defaultVariables = {
   ...baseVariables,
+
+  hairlineWidth: StyleSheet.hairlineWidth,
 
   // Typography
   typography: {
@@ -65,26 +69,6 @@ export const defaultVariables = {
       fontSize: 15,
       color: baseVariables.textColor,
     },
-  },
-
-  // FormGrouo
-  formGroup: {
-    borderWidth: 1,
-    borderColor: '#f4f6f8',
-    backgroundColor: baseVariables.paperColor,
-  },
-
-  // TextInput
-  textInput: {
-    text: {
-      color: baseVariables.textColor,
-    },
-
-    selectionColor: baseVariables.textColor,
-    borderWidth: 1,
-    borderColor: '#f4f6f8',
-    backgroundColor: baseVariables.paperColor,
-    placeholderTextColor: changeColorAlpha(baseVariables.textColor, 0.5),
   },
 
   // Label
@@ -134,14 +118,6 @@ export const defaultVariables = {
   radio: {
     activeBackgroundColor: baseVariables.featuredColor,
     inativeBackgroundColor: inverseColorBrightnessForAmount(baseVariables.paperColor, 15),
-  },
-
-  // Timestamp
-  timestamp: {
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    fontSize: 15,
-    color: baseVariables.textColor,
   },
 
   // Navigation
