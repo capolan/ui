@@ -47,7 +47,7 @@ export default (variables) => ({
   },
 
   // Heding
-  'lh.ui.Heding': {
+  'lh.ui.Heading': {
     [INCLUDE]: ['text'],
 
     ...variables.typography.heading,
