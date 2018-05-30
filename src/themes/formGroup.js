@@ -5,11 +5,6 @@ export default (variables) => ({
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
     '.blocked': {
-      borderWidth: variables.formGroup.borderWidth,
-      borderColor: variables.formGroup.borderColor,
-      paddingVertical: variables.mediumGutter,
-      backgroundColor: variables.formGroup.backgroundColor,
-
       'lh.ui.Label': {
         borderWidth: 0,
         paddingBottom: variables.smallGutter,
@@ -19,14 +14,14 @@ export default (variables) => ({
         borderWidth: 0,
         backgroundColor: 'transparent',
       },
+
+      borderWidth: variables.hairlineWidth,
+      borderColor: variables.lineColor,
+      paddingVertical: variables.mediumGutter,
+      backgroundColor: variables.paperColor,
     },
 
     '.inline': {
-      flexDirection: 'row',
-      alignItems: 'center',
-      height: 52,
-      paddingVertical: 0,
-
       'lh.ui.Label': {
         flex: 1,
         paddingBottom: 0,
@@ -54,6 +49,11 @@ export default (variables) => ({
           marginRight: variables.mediumGutter,
         },
       },
+
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 52,
+      paddingVertical: 0,
     },
 
     '.multiline': {
