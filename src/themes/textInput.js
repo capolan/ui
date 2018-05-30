@@ -1,21 +1,21 @@
-import { INCLUDE } from '@shoutem/theme';
+import { INCLUDE, changeColorAlpha } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.TextInput': {
     [INCLUDE]: ['commonVariants', 'guttersMargin'],
 
     'lh.ui.Text': {
-      ...variables.textInput.text,
+      color: variables.textColor,
     },
 
     minHeight: 52,
     paddingVertical: variables.smallGutter,
     paddingHorizontal: variables.mediumGutter,
-    borderWidth: variables.textInput.borderWidth,
-    borderColor: variables.textInput.borderColor,
-    selectionColor: variables.textInput.selectionColor,
-    placeholderTextColor: variables.textInput.placeholderTextColor,
-    backgroundColor: variables.textInput.backgroundColor,
+    borderWidth: variables.hairlineWidth,
+    borderColor: variables.lineColor,
+    selectionColor: variables.textColor,
+    placeholderTextColor: changeColorAlpha(variables.textColor, 0.5),
+    backgroundColor: variables.paperColor,
     underlineColorAndroid: 'transparent',
   },
 });
