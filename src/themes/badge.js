@@ -10,9 +10,6 @@ export default (variables) => ({
     },
 
     '.dark': {
-      'lh.ui.Text': {
-        color: variables.paperColor,
-      },
       count: {
         backgroundColor: variables.darkColor,
       },
