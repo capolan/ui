@@ -20,7 +20,6 @@ class FormGroup extends Component {
     }
 
     if (this.textInputRef) {
-      console.log(this.textInputRef)
       this.textInputRef.focus();
     } else if (this.toggleRef) {
       this.toggleRef.toggle();
@@ -53,11 +52,12 @@ class FormGroup extends Component {
   }
 
   render() {
-    const style = { ...this.props.style };
+    const { ...props } = this.props
+    const style = { ...props.style };
 
     return (
       <TouchableWithoutFeedback onPress={this.onPress}>
-        <View {...this.props} style={style}>
+        <View {...props} style={style}>
           {this.renderChildren()}
         </View>
       </TouchableWithoutFeedback>

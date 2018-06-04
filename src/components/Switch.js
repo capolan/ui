@@ -26,11 +26,15 @@ class Switch extends Component {
   }
 
   componentDidMount() {
-    this.props.onRef(this);
+    if (this.props.onRef) {
+      this.props.onRef(this);
+    }
   }
 
   componentWillUnmount() {
-    this.props.onRef(undefined);
+    if (this.props.onRef) {
+      this.props.onRef(undefined);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
