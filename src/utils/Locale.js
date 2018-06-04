@@ -1,10 +1,8 @@
-import { DangerZone } from 'expo';
+import I18n from 'ex-react-native-i18n';
 import { LocaleConfig } from 'react-native-calendars';
 import moment from 'moment/min/moment-with-locales';
 import _ from 'lodash';
 import * as calendarLocales from '../locales/calendar';
-
-const { Localization } = DangerZone;
 
 const normalizeLocale = (locale) => {
   const fallback = 'en';
@@ -16,13 +14,13 @@ const normalizeLocale = (locale) => {
   return normalizedLocale;
 }
 
-const getCurrentLocale = async () => {
-  const locale = await Localization.getCurrentLocaleAsync();
+const getCurrentLocale = () => {
+  const locale = I18n.locale;
   return normalizeLocale(locale);
 }
 
-const setCalendarsLocale = async () => {
-  const locale = await getCurrentLocale();
+const setCalendarsLocale = () => {
+  const locale = getCurrentLocale();
   LocaleConfig.locales['en'] = LocaleConfig.locales['']; // set en as fallback
   LocaleConfig.locales['pt-br'] = calendarLocales.pt;
   LocaleConfig.locales['pt'] = calendarLocales.pt;

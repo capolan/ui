@@ -9,7 +9,7 @@ import { connectAnimation } from '@shoutem/animation';
 
 class Timestamp extends Component {
   static defaultProps = {
-    format: 'L LT',
+    format: 'DD/MM/YYYY HH:mm',
     date: moment(),
   };
 
@@ -31,8 +31,8 @@ class Timestamp extends Component {
     this.setDataFormat(nextProps);
   }
 
-  setDataFormat = async ({ date, format }) => {
-    const deviceLocale = await getCurrentLocale();
+  setDataFormat = ({ date, format }) => {
+    const deviceLocale = getCurrentLocale();
     const dateObj = moment(date).locale(deviceLocale);
     const finalDate = dateObj.format(format);
     this.setState({ date: finalDate });
