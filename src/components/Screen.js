@@ -1,43 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardAvoidingView, ScrollView, ScrollViewProps, View } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
 
 import { connectStyle } from '@shoutem/theme';
 import { connectAnimation } from '@shoutem/animation';
 
 class Screen extends Component {
   static defaultProps = {
-    safeAreaView: false,
-    scrolled: true
+    scrolled: true,
   };
 
   static propTypes = {
-    ...ScrollViewProps,
     navigationHeaderComponent: PropTypes.element,
-    safeAreaView: PropTypes.bool,
-    scrolled: PropTypes.bool
+    scrolled: PropTypes.bool,
   };
 
   renderNavigationHeader = () => {
     if (!this.props.navigationHeaderComponent) return null;
     return this.props.navigationHeaderComponent;
-  }
-
-  renderContent = () => {
-    if (this.props.safeAreaView) {
-      return (
-        <SafeAreaView style={this.props.style} forceInset={{ top: 'always' }}>
-          {this.props.children}
-        </SafeAreaView>
-      );
-    }
-
-    return (
-      <View style={this.props.style}>
-        {this.props.children}
-      </View>
-    );
   }
 
   render() {
@@ -47,7 +27,9 @@ class Screen extends Component {
       return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
           {navigationHeader}
-          {this.renderContent()}
+          <View style={this.props.style}>
+            {this.props.children}
+          </View>
         </KeyboardAvoidingView>
       );
     }
@@ -60,7 +42,9 @@ class Screen extends Component {
           keyboardDismissMode="interactive"
           bounces={false}
         >
-          {this.renderContent()}
+          <View style={this.props.style}>
+            {this.props.children}
+          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     );
