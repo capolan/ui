@@ -8,20 +8,20 @@ import { connectAnimation } from '@shoutem/animation';
 class TextInput extends Component {
   static propTypes = {
     ...RNTextInput.propTypes,
+    onRef: PropTypes.func,
     style: PropTypes.object,
   };
 
   render() {
-    const { props } = this;
-    const style = {
-      ...props.style,
-    };
+    const { onRef, ...props } = this.props;
+    const style = { ...props.style };
     delete style.placeholderTextColor;
     delete style.selectionColor;
     delete style.underlineColorAndroid;
 
     return (
       <RNTextInput
+        ref={onRef}
         {...props}
         style={style}
         placeholderTextColor={props.style.placeholderTextColor}

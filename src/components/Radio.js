@@ -9,6 +9,7 @@ import { connectAnimation, TimingDriver } from '@shoutem/animation';
 
 class Radio extends Component {
   static propTypes = {
+    onRef: PropTypes.func,
     value: PropTypes.bool.isRequired,
     onValueChange: PropTypes.func.isRequired,
     style: PropTypes.shape({
@@ -19,22 +20,29 @@ class Radio extends Component {
   constructor(props) {
     super(props);
 
-    this.timingDriver = new TimingDriver();
+    this.timingDriver = new TimingDriver({ duration: 150 });
     this.setValue(props.value);
   }
 
+  componentDidMount() {
+    this.props.onRef(this);
+  }
+
+  componentWillUnmount() {
+    this.props.onRef(undefined);
+  }
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value === this.props.value) {
-      return;
+    if (nextProps.value !== this.props.value) {
+      this.setValue(nextProps.value);
     }
-    this.setValue(nextProps.value);
   }
 
   setValue = (value) => {
     this.timingDriver.toValue(value ? 1 : 0);
   };
 
-  handlePressed = () => {
+  toggle = () => {
     const { value, onValueChange } = this.props;
     onValueChange(!value);
   };
@@ -44,7 +52,7 @@ class Radio extends Component {
 
     return (
       <TouchableWithoutFeedback
-        onPress={this.handlePressed}
+        onPress={this.toggle}
         styleName="clear"
       >
         <View>
