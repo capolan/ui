@@ -1,7 +1,7 @@
 {
   "name": "@lighthouseit/ui",
   "description": "A Customizable and Modular Components Library for React Native apps",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "main": "src/index.js",
   "repository": "https://github.com/LighthouseIT/ui",
   "bugs": {
@@ -19,7 +19,8 @@
     "prop-types": "^15.6.1",
     "react-native-calendars": "^1.19.3",
     "react-native-vector-icons": "^4.6.0",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "^1.4.1",
+    "twix": "^1.2.1"
   },
   "peerDependencies": {
     "expo": ">=27.0.1",
