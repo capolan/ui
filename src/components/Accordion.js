@@ -1,95 +1,112 @@
+// tslint:disable:jsx-no-multiline-js
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Animated, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
+import RNAccordion from 'react-native-collapsible/Accordion';
 
 import { connectStyle } from '@shoutem/theme';
 import { connectAnimation } from '@shoutem/animation';
 
-class Accordion extends Component {
-  static defaultProps = {
-    duration: 100,
-    expanded: false,
+class AccordionItem extends Component {
+  static propTypes = {
+    header: PropTypes.string,
   };
 
+  render() {
+    return null;
+  }
+}
+
+class Accordion extends Component {
   static propTypes = {
-    renderHeader: PropTypes.func.isRequired,
-    renderContent: PropTypes.func.isRequired,
-    easing: PropTypes.string,
-    duration: PropTypes.number,
-    expanded: PropTypes.bool,
-    onPress: PropTypes.func,
+    activeKey: PropTypes.string,
+    defaultActiveKey: PropTypes.string,
+    onChange: PropTypes.func,
+    headerComponent: PropTypes.func,
+    contentComponent: PropTypes.func,
+    children: PropTypes.node,
     style: PropTypes.object,
   };
 
-  state = {
-    visible: false,
-    height: new Animated.Value(),
-    contentHeight: null,
-  };
+  static Item;
 
-  componentDidMount() {
-    setTimeout(() => this.getContentHeight());
-  }
+  renderHeader = (section, index, isActive) => {
+    const { style, headerComponent } = this.props;
 
-  getContentHeight = () => {
-    if (this.contentRef) {
-      this.contentRef.measure((x, y, width, height) => {
-        this.setState({
-          visible: this.props.expanded,
-          contentHeight: height
-        });
-        this.state.height.setValue(this.props.expanded ? height : 0);
-      });
+    if (headerComponent) {
+      return headerComponent(section.title, isActive);
     }
+
+    return (
+      <View style={style.header}>
+        <Text>{section.title}</Text>
+      </View>
+    );
   }
 
-  toggle = () => {
-    Animated.timing(
-      this.state.height,
-      {
-        toValue: this.state.visible ? 0 : this.state.contentHeight,
-        duration: this.props.duration,
+  renderContent = (section, index, isActive) => {
+    const { style, contentComponent } = this.props;
+
+    if (contentComponent) {
+      return contentComponent(section.content, isActive);
+    }
+
+    return section.content;
+  }
+
+  onChange = (idx) => {
+    const { onChange, children } = this.props;
+    let key;
+    React.Children.map(children, (child, index) => {
+      if (idx === index) {
+        key = child.key || `${index}`;
       }
-    ).start(() => this.setState({ visible: !this.state.visible }));
-  }
-
-  onPress = () => {
-    this.toggle();
-
-    if (this.props.onPress) {
-      this.props.onPress();
+    });
+    if (onChange) {
+      onChange(key);
     }
   }
 
   render() {
-    const { props } = this;
-    const style = { ...props.style };
-    let animatedViewStyle = {};
+    const { children, defaultActiveKey, activeKey } = this.props;
+    const style = { ...this.props.style };
+    delete style.header;
     delete style.content;
 
-    if (this.state.contentHeight) {
-      animatedViewStyle = {
-        height: this.state.height,
+    let defaultActiveSection;
+    let activeSection;
+    const headers = React.Children.map(children, (child, index) => {
+      const key = child.key || `${index}`;
+      if (key === defaultActiveKey) {
+        defaultActiveSection = index;
       }
-    }
+      if (key === activeKey) {
+        activeSection = index;
+      }
+      return {
+        title: child.props.header,
+        content: child.props.children,
+      };
+    });
 
     return (
       <View style={style}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={this.onPress}
-        >
-          {props.renderHeader(this.state.visible)}
-        </TouchableOpacity>
-        <Animated.View style={animatedViewStyle}>
-          <View ref={ref => { this.contentRef = ref; }} style={this.props.style.content}>
-            {props.renderContent(this.state.visible)}
-          </View>
-        </Animated.View>
+        <RNAccordion
+          sections={headers}
+          activeSection={activeSection}
+          initiallyActiveSection={defaultActiveSection}
+          renderHeader={this.renderHeader}
+          renderContent={this.renderContent}
+          onChange={this.onChange}
+          duration={0}
+          underlayColor="transparent"
+        />
       </View>
     );
   }
 }
+
+Accordion.Item = AccordionItem;
 
 const AnimatedAccordion = connectAnimation(Accordion);
 const StyledAccordion = connectStyle('lh.ui.Accordion')(AnimatedAccordion);

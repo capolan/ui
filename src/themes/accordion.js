@@ -2,10 +2,11 @@ import { INCLUDE } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Accordion': {
-    [INCLUDE]: ['guttersMargin'],
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
 
     content: {},
-
-    overflow: 'hidden',
   }
 });

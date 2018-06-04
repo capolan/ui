@@ -1,4 +1,5 @@
 import { Theme } from '@shoutem/theme';
+import { setCalendarsLocale } from './utils';
 import getThemeStyle from './theme';
 
 function setDefaultThemeStyle() {
@@ -6,4 +7,4 @@ function setDefaultThemeStyle() {
   Theme.setDefaultThemeStyle(theme);
 }
 
-export { setDefaultThemeStyle };
+export { setDefaultThemeStyle, setCalendarsLocale };

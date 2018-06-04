@@ -1,7 +1,8 @@
-import { setDefaultThemeStyle } from './init';
+import { setDefaultThemeStyle, setCalendarsLocale } from './init';
 import getTheme, { defaultVariables } from './theme';
 
 setDefaultThemeStyle();
+setCalendarsLocale();
 
 // Theme
 export { getTheme, defaultVariables };
