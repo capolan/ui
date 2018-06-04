@@ -71,7 +71,6 @@ class Accordion extends Component {
     const { children, defaultActiveKey, activeKey } = this.props;
     const style = { ...this.props.style };
     delete style.header;
-    delete style.content;
 
     let defaultActiveSection;
     let activeSection;

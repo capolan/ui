@@ -6,7 +6,5 @@ export default (variables) => ({
       flexDirection: 'row',
       alignItems: 'center',
     },
-
-    content: {},
   }
 });
