@@ -1,1 +1,1 @@
-export { getCurrentLocale } from './Locale';
+export { getCurrentLocale, setCalendarsLocale } from './Locale';

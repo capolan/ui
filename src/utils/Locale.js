@@ -1,6 +1,9 @@
 import { DangerZone } from 'expo';
+import { LocaleConfig } from 'react-native-calendars';
 import moment from 'moment/min/moment-with-locales';
-import * as _ from 'lodash';
+import _ from 'lodash';
+import * as calendarLocales from '../locales/calendar';
+
 const { Localization } = DangerZone;
 
 const normalizeLocale = (locale) => {
@@ -18,4 +21,12 @@ const getCurrentLocale = async () => {
   return normalizeLocale(locale);
 }
 
-export { getCurrentLocale };
+const setCalendarsLocale = async () => {
+  const locale = await getCurrentLocale();
+  LocaleConfig.locales['en'] = LocaleConfig.locales['']; // set en as fallback
+  LocaleConfig.locales['pt-br'] = calendarLocales.pt;
+  LocaleConfig.locales['pt'] = calendarLocales.pt;
+  LocaleConfig.defaultLocale = locale;
+}
+
+export { getCurrentLocale, setCalendarsLocale };

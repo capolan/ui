@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'moment';
-import { extendMoment } from 'moment-range';
+import moment from 'moment';
+import twix from 'twix';
 import _ from 'lodash';
-import { CalendarList, LocaleConfig } from 'react-native-calendars';
+import { CalendarList } from 'react-native-calendars';
 import { Card, View, Button, Text } from '../';
-import { getCurrentLocale } from '../utils';
-import * as calendarLocales from '../locales/calendar';
 
 import { connectStyle } from '@shoutem/theme';
-
-const moment = extendMoment(Moment);
 
 class DatePicker extends Component {
   static defaultProps = {
@@ -39,23 +35,10 @@ class DatePicker extends Component {
     };
   };
 
-  componentDidMount() {
-    this.setLocales();
-  }
-
   componentDidUpdate(prevProps) {
     if (!_.isEqual(prevProps.markedDates, this.props.markedDates)) {
       this.setState({ markedDates: this.props.markedDates });
     }
-  }
-
-  setLocales = async () => {
-    const locale = await getCurrentLocale();
-    LocaleConfig.locales['en'] = LocaleConfig.locales['']; // set en as fallback
-    LocaleConfig.locales['pt-br'] = calendarLocales.pt;
-    LocaleConfig.locales['pt'] = calendarLocales.pt;
-    LocaleConfig.defaultLocale = locale;
-    this.forceUpdate();
   }
 
   // TODO (Donald): Reset marking when clicked day < fromDate;
@@ -78,20 +61,19 @@ class DatePicker extends Component {
     } else if (_.keys(newDates).length === 1) {
       const firstDate = _.keys(newDates)[0];
       const fromDate = moment(firstDate);
-      const toDate = moment(selectedDate);
-      const range = moment().range(fromDate, toDate);
-      const rangeArray = _.toArray(range.by('days'));
+      const toDate = moment(selectedDate).toISOString();
+      const range = moment(fromDate).twix(toDate).toArray('days');
 
-      _.forEach(rangeArray, (value, index) => {
+      _.forEach(range, (value, index) => {
         const date = moment(value).format('YYYY-MM-DD');
 
-        if (index === 0) {
+        if (index === 0 && fromDate !== toDate) {
           newDates[date] = {
             selected: true,
             startingDay: true,
             color: this.props.style.calendar.selectedDateColor,
           };
-        } else if (index === rangeArray.length - 1) {
+        } else if (index === range.length - 1) {
           newDates[date] = {
             selected: true,
             endingDay: true,
