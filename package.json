@@ -1,7 +1,7 @@
 {
   "name": "@lighthouseit/ui",
   "description": "A Customizable and Modular Components Library for React Native apps",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "main": "src/index.js",
   "repository": "https://github.com/LighthouseIT/ui",
   "bugs": {
@@ -13,6 +13,7 @@
   "dependencies": {
     "@shoutem/animation": "^0.12.2",
     "@shoutem/theme": "^0.11.1",
+    "ex-react-native-i18n": "^0.0.4",
     "lodash": "^4.17.10",
     "moment": "^2.22.1",
     "moment-range": "^4.0.1",
