@@ -1,9 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { INCLUDE, changeColorAlpha } from '@shoutem/theme';
 
 export const sizeVariants = [
   '', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical',
 ];
+
+export const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 const baseVariables = {
   fontFamily: '',
@@ -31,6 +33,8 @@ const baseVariables = {
 export const defaultVariables = {
   ...baseVariables,
 
+  screenWidth,
+  screenHeight,
   hairlineWidth: StyleSheet.hairlineWidth,
 
   // Typography

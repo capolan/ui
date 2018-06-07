@@ -31,6 +31,7 @@ export { NavigationHeader } from './components/NavigationHeader';
 export { Radio } from './components/Radio';
 export { Screen } from './components/Screen';
 export { Switch } from './components/Switch';
+export { Tabs, Tab, TabBar } from './components/Tabs';
 export { TextInput } from './components/TextInput';
 export { Timestamp } from './components/Timestamp';
 export { View } from './components/View';

@@ -16,6 +16,7 @@ import navigationHeaderTheme from './themes/navigationHeader';
 import radioTheme from './themes/radio';
 import screenTheme from './themes/screen';
 import switchTheme from './themes/switch';
+import tabsTheme from './themes/tabs';
 import textTheme from './themes/text';
 import textInputTheme from './themes/textInput';
 import timestampTheme from './themes/timestamp';
@@ -224,6 +225,9 @@ export default (variables = defaultVariables) => ({
 
   // Switch Button
   ...switchTheme(variables),
+
+  // Tabs
+  ...tabsTheme(variables),
 
   // Heading, Title, Subtitle, Caption, Text, Label
   ...textTheme(variables),
