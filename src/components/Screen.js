@@ -11,22 +11,22 @@ class Screen extends Component {
   };
 
   static propTypes = {
-    navigationHeaderComponent: PropTypes.element,
+    headerComponent: PropTypes.element,
     scrolled: PropTypes.bool,
   };
 
-  renderNavigationHeader = () => {
-    if (!this.props.navigationHeaderComponent) return null;
-    return this.props.navigationHeaderComponent;
+  renderHeaderComponent = () => {
+    if (!this.props.headerComponent) return null;
+    return this.props.headerComponent;
   }
 
   render() {
-    const navigationHeader = this.renderNavigationHeader();
+    const header = this.renderHeaderComponent();
 
     if (!this.props.scrolled) {
       return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
-          {navigationHeader}
+          {header}
           <View style={this.props.style}>
             {this.props.children}
           </View>
@@ -36,7 +36,7 @@ class Screen extends Component {
 
     return (
       <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
-        {navigationHeader}
+        {header}
         <ScrollView
           contentContainerStyle={{ flexGrow: 1 }}
           keyboardDismissMode="interactive"
