@@ -8,25 +8,27 @@ import { connectAnimation } from '@shoutem/animation';
 class Icon extends Component {
   static defaultProps = {
     size: 24,
+    color: null,
   };
 
   static propTypes = {
     name: PropTypes.string.isRequired,
     size: PropTypes.number,
+    color: PropTypes.string,
   };
 
   render() {
     const IconComponent = Feather;
-    const style = { ...this.props.style };
+    const { color, ...props } = this.props;
+    const style = { ...props.style };
     delete style.color;
-    const color = this.props.style.color;
 
     return (
       <IconComponent
         style={style}
         name={this.props.name}
         size={this.props.size}
-        color={color}
+        color={color || props.style.color}
       />
     );
   }
