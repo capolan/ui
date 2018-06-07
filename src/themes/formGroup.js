@@ -48,6 +48,7 @@ export default (variables) => ({
       '.multiline': {
         'lh.ui.TextInput': {
           minHeight: 100,
+          textAlignVertical: 'top',
         },
       },
 
