@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
-import RNCollapsible from 'react-native-collapsible';
 import RNAccordion from 'react-native-collapsible/Accordion';
 
 import { connectStyle } from '@shoutem/theme';
@@ -19,14 +18,12 @@ class AccordionItem extends Component {
 }
 
 class Accordion extends Component {
-  static defaultProps = {
-    duration: 150,
-  };
-
   static propTypes = {
-    duration: PropTypes.number,
     activeKey: PropTypes.string,
     defaultActiveKey: PropTypes.string,
+    onChange: PropTypes.func,
+    headerComponent: PropTypes.func,
+    contentComponent: PropTypes.func,
     children: PropTypes.node,
     style: PropTypes.object,
   };
@@ -34,37 +31,44 @@ class Accordion extends Component {
   static Item;
 
   renderHeader = (section, index, isActive) => {
-    const { style } = this.props;
+    const { style, headerComponent } = this.props;
 
-    if (React.isValidElement(section.title)) {
-      return section.title;
+    if (headerComponent) {
+      return headerComponent(section.title, isActive);
     }
 
     return (
       <View style={style.header}>
-        <Text style={style.headerText}>{section.title}</Text>
+        <Text>{section.title}</Text>
       </View>
     );
   }
 
-  renderContent = (section) => {
-    if (!React.isValidElement(section.content)) return null;
+  renderContent = (section, index, isActive) => {
+    const { style, contentComponent } = this.props;
+
+    if (contentComponent) {
+      return contentComponent(section.content, isActive);
+    }
 
     return section.content;
   }
 
   onChange = (idx) => {
-    const { children } = this.props;
+    const { onChange, children } = this.props;
     let key;
     React.Children.map(children, (child, index) => {
       if (idx === index) {
         key = child.key || `${index}`;
       }
     });
+    if (onChange) {
+      onChange(key);
+    }
   }
 
   render() {
-    const { children, defaultActiveKey, activeKey, duration } = this.props;
+    const { children, defaultActiveKey, activeKey } = this.props;
     const style = { ...this.props.style };
     delete style.header;
 
@@ -75,11 +79,9 @@ class Accordion extends Component {
       if (key === defaultActiveKey) {
         defaultActiveSection = index;
       }
-
       if (key === activeKey) {
         activeSection = index;
       }
-
       return {
         title: child.props.header,
         content: child.props.children,
@@ -95,7 +97,7 @@ class Accordion extends Component {
           renderHeader={this.renderHeader}
           renderContent={this.renderContent}
           onChange={this.onChange}
-          duration={duration}
+          duration={0}
           underlayColor="transparent"
         />
       </View>
