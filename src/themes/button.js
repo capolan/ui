@@ -25,6 +25,10 @@ export default (variables) => ({
         color: variables.paperColor,
       },
 
+      'lh.ui.Icon': {
+        color: variables.paperColor,
+      },
+
       borderWidth: 0,
       backgroundColor: variables.darkColor,
     },
@@ -34,6 +38,11 @@ export default (variables) => ({
         color: variables.darkColor,
       },
 
+      'lh.ui.Icon': {
+        color: variables.darkColor,
+      },
+
+      borderWidth: 0,
       backgroundColor: variables.paperColor,
     },
 
