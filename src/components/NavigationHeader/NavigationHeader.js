@@ -23,6 +23,16 @@ class NavigationHeader extends Component {
     id: PropTypes.string,
   };
 
+  componentDidMount() {
+    const backgroundColor = this.getBackgroundColor(this.props.style);
+    this.setStatusBarStyle(backgroundColor);
+  }
+
+  componentWillUnmount() {
+    const backgroundColor = this.getBackgroundColor(this.props.style);
+    this.unsetStatusBarStyle(backgroundColor);
+  }
+
   getBackgroundColor = (style) => {
     const bgColor = _.find(style, (styleDef) =>
       styleDef.backgroundColor && styleDef.backgroundColor !== 'transparent'
@@ -30,14 +40,23 @@ class NavigationHeader extends Component {
     return bgColor && bgColor.backgroundColor || 'transparent';
   }
 
+  getBackgroundColorBrightness = (backgroundColor) => {
+    return color(backgroundColor).isDark();
+  }
+
   setStatusBarStyle = (backgroundColor) => {
-    const barStyle = color(backgroundColor).isDark()
+    const barStyle = this.getBackgroundColorBrightness(backgroundColor)
       ? 'light-content'
       : 'dark-content';
 
-    if (Platform.OS === 'android') {
-      StatusBar.setBackgroundColor(backgroundColor);
-    }
+    StatusBar.setBarStyle(barStyle);
+  }
+
+  unsetStatusBarStyle = (backgroundColor) => {
+    const barStyle = !this.getBackgroundColorBrightness(backgroundColor)
+      ? 'light-content'
+      : 'dark-content';
+
     StatusBar.setBarStyle(barStyle);
   }
 
@@ -49,9 +68,6 @@ class NavigationHeader extends Component {
       style,
       id,
     } = this.props;
-
-    const backgroundColor = this.getBackgroundColor(style);
-    this.setStatusBarStyle(backgroundColor);
 
     return (
       <SafeAreaView key={id} style={style.container} forceInset={{ top: 'always' }}>
