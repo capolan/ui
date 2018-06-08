@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabView } from 'react-native-tab-view';
 import _ from 'lodash';
 import { TabBar } from '../../';
 
@@ -57,15 +57,14 @@ class Tabs extends Component {
     this.setState({ routes });
   }
 
-  getScenes = () => {
+  renderScene = ({ route }) => {
     const { children } = this.props;
-    const scenes = React.Children.map(children, (child, index) => {
+
+    return React.Children.map(children, (child, index) => {
       const key = child.key || `tab${index}`;
-      return {
-        [key]: child.props.children,
-      };
+      if (route.key !== key) return null;
+      return child.props.children;
     });
-    return Object.assign({}, ...scenes);
   }
 
   renderTabBar = (props) => {
@@ -82,12 +81,11 @@ class Tabs extends Component {
 
   render() {
     const { style, tabBarPosition } = this.props;
-    const scenes = this.getScenes();
 
     return (
       <TabView
         navigationState={this.state}
-        renderScene={SceneMap(scenes)}
+        renderScene={this.renderScene}
         renderTabBar={this.renderTabBar}
         onIndexChange={index => this.setState({ index })}
         initialLayout={style.initialLayout}
