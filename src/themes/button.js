@@ -2,7 +2,12 @@ import { INCLUDE, changeColorAlpha, inverseColorBrightnessForAmount } from '@sho
 
 export default (variables) => ({
   'lh.ui.Button': {
-    [INCLUDE]: ['commonVariants', 'selfFlexAlignment', 'guttersMargin'],
+    [INCLUDE]: [
+      'commonVariants',
+      'guttersMargin',
+      'selfFlexAlignment',
+      'horizontalFlexAlignment',
+    ],
 
     '.clear': {
       '.shadow': {

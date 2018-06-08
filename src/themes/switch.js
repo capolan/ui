@@ -1,35 +1,30 @@
-import { INCLUDE, inverseColorBrightnessForAmount } from '@shoutem/theme';
+import { INCLUDE } from '@shoutem/theme';
 
 export default (variables) => ({
   'lh.ui.Switch': {
     [INCLUDE]: ['guttersMargin'],
 
     container: {
-      borderRadius: 30,
-      height: 36,
-      paddingHorizontal: 6,
-      paddingVertical: 6,
-      width: 60,
-
       muteAnimation(driver) {
         return {
           backgroundColor: driver.interpolate({
             inputRange: [0, 1],
             outputRange: [
-              inverseColorBrightnessForAmount(variables.paperColor, 15),
-              variables.featuredColor,
+              variables.switchInactiveColor,
+              variables.switchActiveColor,
             ],
           }),
         };
       },
+
+      width: 50,
+      height: 28,
+      borderRadius: 25,
+      paddingHorizontal: 5,
+      paddingVertical: 5,
     },
 
     thumb: {
-      backgroundColor: variables.paperColor,
-      borderRadius: 12,
-      height: 24,
-      width: 24,
-
       turnAnimation(driver, { layout, animationOptions }) {
         const { width } = layout;
         return {
@@ -43,6 +38,11 @@ export default (variables) => ({
           ],
         };
       },
+
+      width: 18,
+      height: 18,
+      borderRadius: 9,
+      backgroundColor: variables.switchThumbColor,
     },
   },
 });

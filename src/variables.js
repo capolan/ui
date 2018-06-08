@@ -1,5 +1,9 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { INCLUDE, changeColorAlpha } from '@shoutem/theme';
+import {
+  INCLUDE,
+  changeColorAlpha,
+  inverseColorBrightnessForAmount,
+} from '@shoutem/theme';
 
 export const sizeVariants = [
   '', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical',
@@ -70,4 +74,8 @@ export const defaultVariables = {
       color: baseVariables.textColor,
     },
   },
+
+  switchActiveColor: baseVariables.featuredColor,
+  switchInactiveColor: inverseColorBrightnessForAmount(baseVariables.paperColor, 15),
+  switchThumbColor: baseVariables.paperColor,
 };

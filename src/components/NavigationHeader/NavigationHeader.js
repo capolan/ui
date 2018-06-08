@@ -28,11 +28,6 @@ class NavigationHeader extends Component {
     this.setStatusBarStyle(backgroundColor);
   }
 
-  componentWillUnmount() {
-    const backgroundColor = this.getBackgroundColor(this.props.style);
-    this.unsetStatusBarStyle(backgroundColor);
-  }
-
   getBackgroundColor = (style) => {
     const bgColor = _.find(style, (styleDef) =>
       styleDef.backgroundColor && styleDef.backgroundColor !== 'transparent'
@@ -46,14 +41,6 @@ class NavigationHeader extends Component {
 
   setStatusBarStyle = (backgroundColor) => {
     const barStyle = this.getBackgroundColorBrightness(backgroundColor)
-      ? 'light-content'
-      : 'dark-content';
-
-    StatusBar.setBarStyle(barStyle);
-  }
-
-  unsetStatusBarStyle = (backgroundColor) => {
-    const barStyle = !this.getBackgroundColorBrightness(backgroundColor)
       ? 'light-content'
       : 'dark-content';
 
