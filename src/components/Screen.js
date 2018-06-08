@@ -7,12 +7,12 @@ import { connectAnimation } from '@shoutem/animation';
 
 class Screen extends Component {
   static defaultProps = {
-    scrolled: true,
+    scrollEnable: true,
   };
 
   static propTypes = {
     headerComponent: PropTypes.element,
-    scrolled: PropTypes.bool,
+    scrollEnable: PropTypes.bool,
   };
 
   renderHeaderComponent = () => {
@@ -21,14 +21,15 @@ class Screen extends Component {
   }
 
   render() {
+    const { style, children, scrollEnable } = this.props;
     const header = this.renderHeaderComponent();
 
-    if (!this.props.scrolled) {
+    if (!scrollEnable) {
       return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
           {header}
-          <View style={this.props.style}>
-            {this.props.children}
+          <View style={style}>
+            {children}
           </View>
         </KeyboardAvoidingView>
       );
@@ -42,8 +43,8 @@ class Screen extends Component {
           keyboardDismissMode="interactive"
           bounces={false}
         >
-          <View style={this.props.style}>
-            {this.props.children}
+          <View style={style}>
+            {children}
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
