@@ -8,17 +8,19 @@ import { connectStyle } from '@shoutem/theme';
 
 class Tabs extends Component {
   static defaultProps = {
-    initialTab: 0,
     tabBarPosition: 'top',
+    initialTab: 0,
+    scrollEnabled: true,
   };
 
   static propTypes = {
-    initialTab: PropTypes.number,
     tabBarPosition: PropTypes.oneOf(['top', 'bottom']),
-    onChange: PropTypes.func,
+    initialTab: PropTypes.number,
+    scrollEnabled: PropTypes.bool,
     renderIcon: PropTypes.func,
     renderLabel: PropTypes.func,
     onTabPress: PropTypes.func,
+    onChange: PropTypes.func,
     children: PropTypes.node,
     style: PropTypes.object,
   };
@@ -68,10 +70,11 @@ class Tabs extends Component {
   }
 
   renderTabBar = (props) => {
-    const { renderIcon, renderLabel, onTabPress } = this.props;
+    const { scrollEnabled, renderIcon, renderLabel, onTabPress } = this.props;
     return (
       <TabBar
         {...props}
+        scrollEnabled={scrollEnabled}
         renderIcon={renderIcon}
         renderLabel={renderLabel}
         onTabPress={onTabPress}
