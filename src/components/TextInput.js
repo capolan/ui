@@ -12,8 +12,24 @@ class TextInput extends Component {
     style: PropTypes.object,
   };
 
+  componentDidMount() {
+    if (this.props.onRef) {
+      this.props.onRef(this);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.onRef) {
+      this.props.onRef(undefined);
+    }
+  }
+
+  focus = () => {
+    this.inputRef.focus();
+  }
+
   render() {
-    const { onRef, ...props } = this.props;
+    const { ...props } = this.props;
     const style = { ...props.style };
     delete style.placeholderTextColor;
     delete style.selectionColor;
@@ -21,7 +37,7 @@ class TextInput extends Component {
 
     return (
       <RNTextInput
-        ref={onRef}
+        ref={ref => { this.inputRef = ref; }}
         {...props}
         style={style}
         placeholderTextColor={props.style.placeholderTextColor}
