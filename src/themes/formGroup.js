@@ -73,6 +73,10 @@ export default (variables) => ({
       backgroundColor: variables.paperColor,
     },
 
+    '.muted': {
+      opacity: variables.mutedOpacity,
+    },
+
     'lh.ui.Label': {
       paddingBottom: variables.smallGutter,
       paddingHorizontal: variables.mediumGutter,

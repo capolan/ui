@@ -76,13 +76,7 @@ export default (variables) => ({
     },
 
     '.muted': {
-      'lh.ui.Icon': {
-        opacity: 0.5,
-      },
-
-      'lh.ui.Text': {
-        opacity: 0.5,
-      },
+      opacity: variables.mutedOpacity,
     },
 
     '.full-width': {

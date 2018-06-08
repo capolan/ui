@@ -75,6 +75,8 @@ export const defaultVariables = {
     },
   },
 
+  mutedOpacity: 0.5,
+
   switchActiveColor: baseVariables.featuredColor,
   switchInactiveColor: inverseColorBrightnessForAmount(baseVariables.paperColor, 15),
   switchThumbColor: baseVariables.paperColor,

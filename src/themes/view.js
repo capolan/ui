@@ -40,7 +40,7 @@ export default (variables) => ({
     },
 
     '.muted': {
-      opacity: 0.3,
+      opacity: variables.mutedOpacity,
     },
 
     '.featured': {
