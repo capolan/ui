@@ -90,22 +90,23 @@ export default (variables) => ({
     },
 
     'lh.ui.Text': {
-      letterSpacing: 1,
-      marginVertical: variables.mediumGutter,
+      fontSize: 15,
       fontStyle: 'normal',
       fontWeight: 'bold',
-      fontSize: 15,
+      letterSpacing: 1,
+      marginVertical: variables.mediumGutter,
+      marginHorizontal: variables.smallGutter,
       color: variables.paperColor,
     },
 
     'lh.ui.Icon': {
-      marginRight: variables.mediumGutter,
+      marginHorizontal: variables.smallGutter,
     },
 
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: variables.mediumGutter,
+    paddingHorizontal: variables.smallGutter,
     borderWidth: variables.hairlineWidth,
     borderColor: inverseColorBrightnessForAmount(variables.featuredColor, 10),
     backgroundColor: variables.featuredColor,
