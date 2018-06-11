@@ -4,6 +4,7 @@ import moment from 'moment';
 import twix from 'twix';
 import _ from 'lodash';
 import { Calendar as RNCalendar, CalendarList } from 'react-native-calendars';
+import { Icon } from '../';
 
 import { connectStyle } from '@shoutem/theme';
 
@@ -117,6 +118,7 @@ class Calendar extends Component {
     const { ...props } = this.props;
     const style = { ...props.style };
     delete style.markedDayColor;
+    delete style.iconColor;
 
     return (
       <RNCalendar
@@ -125,6 +127,9 @@ class Calendar extends Component {
         theme={{
           todayTextColor: props.style.markedDayColor,
         }}
+        renderArrow={(direction) => (
+          <Icon name={`chevron-${direction}`} color={props.style.iconColor} />
+        )}
         current={current}
         markedDates={markedDates}
         onDayPress={this.onDayPress}
