@@ -25,24 +25,31 @@ export default (variables) => ({
   },
 
   'lh.ui.TabBar': {
-    tab: {
-      // justifyContent: 'center',
-      height: 47,
+    scroll: {
+      flexDirection: 'row',
+      flexWrap: 'nowrap',
     },
 
-    label: {
-      color: variables.darkColor,
+    tab: {
+      position: 'relative',
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: variables.mediumGutter,
     },
 
     indicator: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
       height: 3,
-      zIndex: 20,
       backgroundColor: variables.darkColor,
     },
 
+    flexDirection: 'row',
     height: 50,
-    elevation: 0,
-    shadowOffset: { height: 0 }, 
+    overflow: 'hidden',
     backgroundColor: variables.paperColor,
   },
 });
