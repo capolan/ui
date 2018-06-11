@@ -1,1 +1,2 @@
-export { getCurrentLocale, setCalendarsLocale } from './Locale';
+export { getCurrentLocale, getTranslations, setCalendarLocale } from './Locale';
+export { isChildrenTouchable } from './Helpers';
