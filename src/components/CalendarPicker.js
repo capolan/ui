@@ -17,7 +17,7 @@ class CalendarPicker extends Component {
   renderClearButton = () => (
     <Button styleName="clear end" onPress={() => this.calendarRef.clear()}>
       <Text styleName="bold dark">
-        {I18n['clear']}
+        {I18n('clear')}
       </Text>
     </Button>
   );

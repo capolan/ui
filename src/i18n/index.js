@@ -2,13 +2,19 @@ import { getCurrentLocale } from '../utils';
 
 const locale = getCurrentLocale();
 
-export default () => {
+export default (key) => {
+  let translations;
   switch (locale) {
     case 'en':
-      return require('./languages/en.json');
+      translations = require('./languages/en.json');
+      break;
     case 'pt':
-      return require('./languages/en.json');
+      translations = require('./languages/pt.json');
+      break;
     default:
-      return require('./languages/en.json');
+      translations = require('./languages/en.json');
+      break;
   }
+
+  return translations[key];
 }

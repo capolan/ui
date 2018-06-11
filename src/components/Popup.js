@@ -28,6 +28,8 @@ class Popup extends Component {
   renderHeader = () => {
     const { headerCenter, headerLeft, headerRight, style } = this.props;
 
+    console.log(I18n())
+
     return (
       <View style={style.header}>
         <View>{headerLeft}</View>
@@ -36,7 +38,7 @@ class Popup extends Component {
           {headerRight ? headerRight : (
             <Button styleName="clear" onPress={() => this.modalRef.close()}>
               <Text styleName="bold dark">
-                {I18n['done']}
+                {I18n('done')}
               </Text>
             </Button>
           )}
