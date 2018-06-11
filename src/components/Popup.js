@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
+import _ from 'lodash';
 import I18n from '../i18n';
 import { Modal, Card, Button, Text } from '../';
 
@@ -20,6 +21,10 @@ class Popup extends Component {
     style: PropTypes.object,
   };
 
+  shouldComponentUpdate(nextProps) {
+    return !_.isEqual(nextProps, this.props);
+  }
+
   onRef = (ref) => {
     this.modalRef = ref;
     this.props.onRef(ref);
@@ -27,8 +32,6 @@ class Popup extends Component {
 
   renderHeader = () => {
     const { headerCenter, headerLeft, headerRight, style } = this.props;
-
-    console.log(I18n())
 
     return (
       <View style={style.header}>
