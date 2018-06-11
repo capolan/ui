@@ -96,7 +96,7 @@ class Accordion extends Component {
             <View style={style.header}>
               <Text>{title}</Text>
             </View>
-          ) : headerComponent(section, isActive)
+          ) : headerComponent(title, isActive)
         }
       </TouchableOpacity>
     );
