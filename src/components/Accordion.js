@@ -1,11 +1,12 @@
 /* eslint-disable react/no-multi-comp */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
-import RNAccordion from 'react-native-collapsible/Accordion';
+import { TouchableOpacity, View, Text } from 'react-native';
+import RNCollapsible from 'react-native-collapsible';
+import _ from 'lodash';
+import { Icon } from '../';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 class AccordionItem extends Component {
   static propTypes = {
@@ -18,88 +19,132 @@ class AccordionItem extends Component {
 }
 
 class Accordion extends Component {
+  static defaultProps = {
+    onChange: () => null,
+    multiCollapse: false,
+  };
+
   static propTypes = {
-    activeKey: PropTypes.string,
-    defaultActiveKey: PropTypes.string,
     onChange: PropTypes.func,
     headerComponent: PropTypes.func,
     contentComponent: PropTypes.func,
+    multiCollapse: PropTypes.bool,
     children: PropTypes.node,
     style: PropTypes.object,
   };
 
   static Item;
 
-  renderHeader = (section, index, isActive) => {
-    const { style, headerComponent } = this.props;
+  state = {
+    sections: {},
+  };
 
-    if (headerComponent) {
-      return headerComponent(section.title, isActive);
-    }
+  componentWillMount() {
+    this.getDefaultExpandedSections();
+  }
+
+  shouldComponentUpdate(nextState) {
+    return !_.isEqual(nextState.sections, this.state.sections);
+  }
+
+  getDefaultExpandedSections = () => {
+    const { children } = this.props;
+
+    React.Children.map(children, (child, index) => {
+      const key = child.key || `section${index}`;
+      if (child.props.expanded) {
+        this.toggle(key);
+      }
+    });
+  }
+
+  isSectionActive = (key) => {
+    return this.state.sections[key];
+  }
+
+  toggle = (key) => {
+    const { multiCollapse } = this.props;
+
+    this.setState({
+      sections: {
+        ...this.state.sections,
+        ..._.assign(
+          ...(!multiCollapse && _.mapValues(this.state.sections, () => false)),
+        ),
+        [key]: this.state.sections[key] ? !this.state.sections[key] : true,
+      },
+    });
+  }
+
+  onChange = (key) => {
+    this.toggle(key);
+    this.props.onChange(key);
+  }
+
+  renderHeader = (section) => {
+    const { style, headerComponent } = this.props;
+    const { key, title } = section;
+    const isActive = this.isSectionActive(key);
 
     return (
-      <View style={style.header}>
-        <Text>{section.title}</Text>
-      </View>
+      <TouchableOpacity
+        onPress={() => this.onChange(key)}
+        activeOpacity={0.8}
+      >
+        {!headerComponent
+          ? (
+            <View style={style.header}>
+              <Text>{title}</Text>
+            </View>
+          ) : headerComponent(section, isActive)
+        }
+      </TouchableOpacity>
     );
   }
 
-  renderContent = (section, index, isActive) => {
+  renderContent = (section) => {
     const { style, contentComponent } = this.props;
+    const { key, content } = section;
+    const isActive = this.isSectionActive(key);
 
-    if (contentComponent) {
-      return contentComponent(section.content, isActive);
-    }
-
-    return section.content;
+    return (
+      <RNCollapsible collapsed={!isActive}>
+        {!contentComponent
+          ? content
+          : contentComponent(content, isActive)
+        }
+      </RNCollapsible>
+    );
   }
 
-  onChange = (idx) => {
-    const { onChange, children } = this.props;
-    let key;
-    React.Children.map(children, (child, index) => {
-      if (idx === index) {
-        key = child.key || `${index}`;
-      }
-    });
-    if (onChange) {
-      onChange(key);
-    }
-  }
+  renderSections = () => {
+    const { children } = this.props;
 
-  render() {
-    const { children, defaultActiveKey, activeKey } = this.props;
-    const style = { ...this.props.style };
-    delete style.header;
+    return React.Children.map(children, (child, index) => {
+      const key = child.key || `section${index}`;
 
-    let defaultActiveSection;
-    let activeSection;
-    const headers = React.Children.map(children, (child, index) => {
-      const key = child.key || `${index}`;
-      if (key === defaultActiveKey) {
-        defaultActiveSection = index;
-      }
-      if (key === activeKey) {
-        activeSection = index;
-      }
       return {
+        key,
         title: child.props.header,
         content: child.props.children,
       };
     });
+  }
+
+  render() {
+    const style = { ...this.props.style };
+    delete style.header;
+
+    const sections = this.renderSections();
 
     return (
       <View style={style}>
-        <RNAccordion
-          sections={headers}
-          activeSection={activeSection}
-          initiallyActiveSection={defaultActiveSection}
-          renderHeader={this.renderHeader}
-          renderContent={this.renderContent}
-          onChange={this.onChange}
-          duration={0}
-          underlayColor="transparent"
-        />
+        {sections.map((section) => (
+          <View key={section.key}>
+            {this.renderHeader(section)}
+            {this.renderContent(section)}
+          </View>
+        ))}
       </View>
     );
   }
@@ -107,7 +152,6 @@ class Accordion extends Component {
 
 Accordion.Item = AccordionItem;
 
-const AnimatedAccordion = connectAnimation(Accordion);
-const StyledAccordion = connectStyle('lh.ui.Accordion')(AnimatedAccordion);
+const StyledAccordion = connectStyle('lh.ui.Accordion')(Accordion);
 
 export { StyledAccordion as Accordion };
