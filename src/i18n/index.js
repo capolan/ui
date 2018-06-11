@@ -18,3 +18,5 @@ switch (languageCode) {
     I18n.translations.pt = require('./languages/pt.json');
     break;
 }
+
+export default I18n;

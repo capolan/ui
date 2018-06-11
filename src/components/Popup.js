@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import I18n from 'ex-react-native-i18n';
+import I18n from '../i18n';
 import { Modal, Card, Button, Text } from '../';
 
 import { connectStyle } from '@shoutem/theme';

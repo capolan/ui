@@ -1,4 +1,3 @@
-import './i18n';
 import { Theme } from '@shoutem/theme';
 import { setCalendarLocale } from './utils';
 import getThemeStyle from './theme';
