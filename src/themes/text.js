@@ -43,6 +43,26 @@ export default (variables) => ({
       opacity: variables.mutedOpacity,
     },
 
+    '.dark': {
+      color: variables.darkColor,
+    },
+
+    '.success': {
+      color: variables.successColor,
+    },
+
+    '.danger': {
+      color: variables.dangerColor,
+    },
+
+    '.warning': {
+      color: variables.warningColor,
+    },
+
+    '.info': {
+      color: variables.infoColor,
+    },
+
     backgroundColor: 'transparent',
   },
 
