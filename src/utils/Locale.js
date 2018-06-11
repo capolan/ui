@@ -1,8 +1,8 @@
 import I18n from 'ex-react-native-i18n';
-import { LocaleConfig } from 'react-native-calendars';
 import moment from 'moment/min/moment-with-locales';
+import { LocaleConfig } from 'react-native-calendars';
 import _ from 'lodash';
-import * as calendarLocales from '../locales/calendar';
+import * as calendarLocales from '../i18n/calendar';
 
 const normalizeLocale = (locale) => {
   const fallback = 'en';
@@ -19,7 +19,18 @@ const getCurrentLocale = () => {
   return normalizeLocale(locale);
 }
 
-const setCalendarsLocale = () => {
+const getTranslations = () => {
+  const locale = getCurrentLocale();
+  moment.locale(locale);
+  return {
+    months: moment.months(),
+    monthsShort: moment.monthsShort().map(value => _.capitalize(value)),
+    weekdays: moment.weekdays(),
+    weekdaysShort: moment.weekdaysShort().map(value => _.capitalize(value)),
+  }
+}
+
+const setCalendarLocale = () => {
   const locale = getCurrentLocale();
   LocaleConfig.locales['en'] = LocaleConfig.locales['']; // set en as fallback
   LocaleConfig.locales['pt-br'] = calendarLocales.pt;
@@ -27,4 +38,4 @@ const setCalendarsLocale = () => {
   LocaleConfig.defaultLocale = locale;
 }
 
-export { getCurrentLocale, setCalendarsLocale };
+export { getCurrentLocale, getTranslations, setCalendarLocale };

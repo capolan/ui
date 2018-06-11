@@ -1,5 +1,6 @@
+import './i18n';
 import { Theme } from '@shoutem/theme';
-import { setCalendarsLocale } from './utils';
+import { setCalendarLocale } from './utils';
 import getThemeStyle from './theme';
 
 function setDefaultThemeStyle() {
@@ -7,4 +8,4 @@ function setDefaultThemeStyle() {
   Theme.setDefaultThemeStyle(theme);
 }
 
-export { setDefaultThemeStyle, setCalendarsLocale };
+export { setDefaultThemeStyle, setCalendarLocale };
