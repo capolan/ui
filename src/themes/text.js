@@ -43,6 +43,10 @@ export default (variables) => ({
       opacity: variables.mutedOpacity,
     },
 
+    '.white': {
+      color: variables.paperColor,
+    },
+
     '.dark': {
       color: variables.darkColor,
     },
