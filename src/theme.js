@@ -5,6 +5,8 @@ import { INCLUDE, createVariations } from '@shoutem/theme';
 import accordionTheme from './themes/accordion';
 import badgeTheme from './themes/badge';
 import buttonTheme from './themes/button';
+import calendarTheme from './themes/calendar';
+import calendarpickerTheme from './themes/calendarpicker';
 import cardTheme from './themes/card';
 import checkboxTheme from './themes/checkbox';
 import datepickerTheme from './themes/datepicker';
@@ -13,6 +15,8 @@ import formGroupTheme from './themes/formGroup';
 import iconTheme from './themes/icon';
 import modalTheme from './themes/modal';
 import navigationHeaderTheme from './themes/navigationHeader';
+import pickerTheme from './themes/picker';
+import popupTheme from './themes/popup';
 import radioTheme from './themes/radio';
 import screenTheme from './themes/screen';
 import switchTheme from './themes/switch';
@@ -193,13 +197,19 @@ export default (variables = defaultVariables) => ({
   // Button
   ...buttonTheme(variables),
 
+  // Calendar
+  ...calendarTheme(variables),
+
+  // Calendar Picker
+  ...calendarpickerTheme(variables),
+
   // Card
   ...cardTheme(variables),
 
   // Checkbox Button
   ...checkboxTheme(variables),
 
-  // DatePicker
+  // Date Picker
   ...datepickerTheme(variables),
 
   // Diver
@@ -216,6 +226,12 @@ export default (variables = defaultVariables) => ({
 
   // Navigation Header
   ...navigationHeaderTheme(variables),
+
+  // Popup
+  ...popupTheme(variables),
+
+  // Picker
+  ...pickerTheme(variables),
 
   // Radio Button
   ...radioTheme(variables),
