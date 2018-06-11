@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Modal as RNModal,
-  View as RNView,
-  TouchableWithoutFeedback,
-} from 'react-native';
-import { View } from '../';
+import { Modal as RNModal, View, TouchableWithoutFeedback } from 'react-native';
+import _ from 'lodash';
 
 import { connectStyle } from '@shoutem/theme';
 
 class Modal extends Component {
   static defaultProps = {
-    visible: false,
+    onRef: () => undefined,
   };
 
   static propTypes = {
+    onRef: PropTypes.func,
     children: PropTypes.node.isRequired,
     style: PropTypes.object,
-    visible: PropTypes.bool,
-    onClose: PropTypes.func,
   };
 
   constructor(props) {
@@ -29,43 +24,53 @@ class Modal extends Component {
     };
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.visible !== this.props.visible) {
-      this.setState({ visible: nextProps.visible });
-    }
+  shouldComponentUpdate(nextState) {
+    return !_.isEqual(nextState, this.state);
+  }
+
+  componentDidMount() {
+    this.props.onRef(this);
+  }
+
+  componentWillUnmount() {
+    this.props.onRef(undefined);
+  }
+
+  toggle = () => {
+    this.setState({ visible: !this.state.visible });
+  }
+
+  open = () => {
+    this.toggle();
   }
 
   close = () => {
-    if (this.props.onClose) {
-      this.props.onClose();
-    }
-    this.setState({ visible: false });
+    this.toggle();
   }
 
   renderBackdrop = () => (
-    <TouchableWithoutFeedback onPress={this.close}>
-      <RNView style={this.props.style.backdrop} />
+    <TouchableWithoutFeedback onPress={() => this.close()}>
+      <View style={this.props.style.backdrop} />
     </TouchableWithoutFeedback>
   );
 
   render() {
+    const { visible } = this.state;
+    const { children, ...props } = this.props;
     const style = { ...this.props.style };
     delete style.backdrop;
+    const backdrop = this.renderBackdrop();
 
     return (
       <RNModal
-        visible={this.state.visible}
-        onRequestClose={this.close}
+        visible={visible}
+        onRequestClose={() => this.close()}
         animationType="fade"
         transparent
       >
-        <View
-          style={style}
-          styleName="vertical v-center h-center md-gutter"
-          pointerEvents={'box-none'}
-        >
-          {this.renderBackdrop()}
-          {this.props.children}
+        <View style={style} pointerEvents={'box-none'}>
+          {backdrop}
+          {children}
         </View>
       </RNModal>
     );
