@@ -36,7 +36,7 @@ class Popup extends Component {
           {headerRight ? headerRight : (
             <Button styleName="clear" onPress={() => this.modalRef.close()}>
               <Text styleName="bold dark">
-                {I18n.t('done')}
+                {I18n['done']}
               </Text>
             </Button>
           )}
