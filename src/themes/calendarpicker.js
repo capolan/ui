@@ -1,5 +1,5 @@
 import { INCLUDE } from '@shoutem/theme';
 
 export default (variables) => ({
-  'lh.ui.DatePicker': {},
+  'lh.ui.CalendarPicker': {},
 });
