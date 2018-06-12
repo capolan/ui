@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { TextInput as RNTextInput } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 class TextInput extends Component {
   static propTypes = {
@@ -48,7 +47,6 @@ class TextInput extends Component {
   }
 }
 
-const AnimatedTextInput = connectAnimation(TextInput);
-const StyledTextInput = connectStyle('lh.ui.TextInput')(AnimatedTextInput);
+const StyledTextInput = connectStyle('lh.ui.TextInput')(TextInput);
 
 export { StyledTextInput as TextInput };

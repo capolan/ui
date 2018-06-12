@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { KeyboardAvoidingView, ScrollView, ScrollViewProps, View } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 class Screen extends Component {
   static defaultProps = {
@@ -52,7 +51,6 @@ class Screen extends Component {
   }
 }
 
-const AnimatedScreen = connectAnimation(Screen);
-const StyledScreen = connectStyle('lh.ui.Screen')(AnimatedScreen);
+const StyledScreen = connectStyle('lh.ui.Screen')(Screen);
 
 export { StyledScreen as Screen };

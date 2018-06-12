@@ -5,20 +5,16 @@ import moment from 'moment/min/moment-with-locales';
 import { getCurrentLocale } from '../utils';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 class Timestamp extends Component {
   static defaultProps = {
     format: 'DD/MM/YYYY HH:mm',
-    date: moment(),
+    date: new Date(),
   };
 
   static propTypes = {
-    format: PropTypes.string, // Moment format
-    date: PropTypes.oneOfType([
-      PropTypes.string, // ISO-8601 string
-      PropTypes.object, // Moment object
-    ]),
+    format: PropTypes.string,
+    date: PropTypes.instanceOf(Date),
   };
 
   state = {};
@@ -47,7 +43,6 @@ class Timestamp extends Component {
   }
 }
 
-const AnimatedTimestamp = connectAnimation(Timestamp);
-const StyledTimestamp = connectStyle('lh.ui.Timestamp')(AnimatedTimestamp);
+const StyledTimestamp = connectStyle('lh.ui.Timestamp')(Timestamp);
 
 export { StyledTimestamp as Timestamp };

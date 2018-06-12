@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import { Text } from './Text';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 class Badge extends Component {
   static defaultProps = {
@@ -42,7 +41,6 @@ class Badge extends Component {
   }
 }
 
-const AnimatedBadge = connectAnimation(Badge);
-const StyledBadge = connectStyle('lh.ui.Badge')(AnimatedBadge);
+const StyledBadge = connectStyle('lh.ui.Badge')(Badge);
 
 export { StyledBadge as Badge };

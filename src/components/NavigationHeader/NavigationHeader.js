@@ -6,7 +6,6 @@ import * as _ from 'lodash';
 import color from 'tinycolor2';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 import composeComponents from './ComposeComponents';
 
@@ -68,8 +67,7 @@ class NavigationHeader extends Component {
   }
 }
 
-const AnimatedNavigationHeader = connectAnimation(NavigationHeader);
-const StyledNavigationHeader = connectStyle('lh.ui.NavigationHeader')(AnimatedNavigationHeader);
+const StyledNavigationHeader = connectStyle('lh.ui.NavigationHeader')(NavigationHeader);
 const ComposedNavigationHeader = withNavigation(
   composeComponents(StyledNavigationHeader)
 );

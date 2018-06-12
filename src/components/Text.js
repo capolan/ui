@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Text as RNText } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 class Text extends Component {
   static propTypes = {
@@ -16,13 +15,12 @@ class Text extends Component {
   }
 }
 
-const AnimatedText = connectAnimation(Text);
-const StyledText = connectStyle('lh.ui.Text')(AnimatedText);
-const Heading = connectStyle('lh.ui.Heading')(AnimatedText);
-const Title = connectStyle('lh.ui.Title')(AnimatedText);
-const Subtitle = connectStyle('lh.ui.Subtitle')(AnimatedText);
-const Caption = connectStyle('lh.ui.Caption')(AnimatedText);
-const Label = connectStyle('lh.ui.Label')(AnimatedText);
+const StyledText = connectStyle('lh.ui.Text')(Text);
+const Heading = connectStyle('lh.ui.Heading')(Text);
+const Title = connectStyle('lh.ui.Title')(Text);
+const Subtitle = connectStyle('lh.ui.Subtitle')(Text);
+const Caption = connectStyle('lh.ui.Caption')(Text);
+const Label = connectStyle('lh.ui.Label')(Text);
 
 export {
   StyledText as Text,

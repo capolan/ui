@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { TouchableOpacity } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 class Button extends Component {
   static propTypes = {
@@ -22,7 +21,6 @@ class Button extends Component {
   }
 }
 
-const AnimatedButton = connectAnimation(Button);
-const StyledButton = connectStyle('lh.ui.Button')(AnimatedButton);
+const StyledButton = connectStyle('lh.ui.Button')(Button);
 
 export { StyledButton as Button };
