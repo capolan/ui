@@ -1,7 +1,7 @@
 {
   "name": "@lighthouseit/ui",
   "description": "A Customizable and Modular Components Library for React Native apps",
-  "version": "0.0.60",
+  "version": "0.0.61",
   "main": "src/index.js",
   "repository": "https://github.com/LighthouseIT/ui",
   "bugs": {
@@ -29,9 +29,9 @@
   },
   "peerDependencies": {
     "expo": ">=27.0.1",
-    "react": "^16.3.1",
+    "react": "*",
     "react-native": ">=0.50.0",
-    "react-navigation": "^2.0.1"
+    "react-navigation": "*"
   },
   "devDependencies": {
     "babel-core": "6.26.0",

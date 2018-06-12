@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import RMCDatePicker from 'rmc-date-picker/lib/DatePicker';
-import { getTranslations, isChildrenTouchable } from '../utils';
+import { getTranslations } from '../utils';
 import { Popup } from '../';
 
 import { connectStyle } from '@shoutem/theme';
@@ -37,12 +37,10 @@ class DatePicker extends Component {
 
   renderChildren = () => {
     const { children } = this.props;
-    if (isChildrenTouchable(children)) {
-      return React.cloneElement(children, {
-        onPress: () => this.popupRef.open(),
-      });
-    }
-    return children;
+
+    return React.cloneElement(children, {
+      onPress: () => this.popupRef.open(),
+    });
   }
 
   render() {

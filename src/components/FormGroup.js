@@ -4,9 +4,12 @@ import { TouchableWithoutFeedback, View, ViewPropTypes } from 'react-native';
 import _ from 'lodash';
 
 import { connectStyle } from '@shoutem/theme';
-import { connectAnimation } from '@shoutem/animation';
 
 class FormGroup extends Component {
+  static defaultProps = {
+    onPress: () => null,
+  };
+
   static propTypes = {
     ...ViewPropTypes,
     children: PropTypes.node,
@@ -15,39 +18,23 @@ class FormGroup extends Component {
   };
 
   onPress = () => {
-    if (this.props.onPress) {
-      this.props.onPress();
+    if (this.childRef && _.has(this.childRef, 'focus')) {
+      this.childRef.focus();
+    } else if (this.childRef && _.has(this.childRef, 'toggle')) {
+      this.childRef.toggle();
     }
 
-    if (this.textInputRef) {
-      this.textInputRef.focus();
-    } else if (this.toggleRef) {
-      this.toggleRef.toggle();
-    }
+    this.props.onPress();
   }
 
   renderChildren = () => {
     const { children } = this.props;
     return React.Children.map(children, (child, index) => {
       if (child.children) return this.renderChildren(children);
-      if (_.includes(child.type.displayName, 'TextInput')) {
-        return React.cloneElement(child, {
-          onRef: ref => this.textInputRef = ref,
-        });
-      } else if (_.includes(child.type.displayName, 'Radio')) {
-        return React.cloneElement(child, {
-          onRef: ref => this.toggleRef = ref,
-        });
-      } else if (_.includes(child.type.displayName, 'Checkbox')) {
-        return React.cloneElement(child, {
-          onRef: ref => this.toggleRef = ref,
-        });
-      } else if (_.includes(child.type.displayName, 'Switch')) {
-        return React.cloneElement(child, {
-          onRef: ref => this.toggleRef = ref,
-        });
-      }
-      return child;
+
+      return React.cloneElement(child, {
+        onRef: ref => this.childRef = ref,
+      });
     });
   }
 
@@ -65,7 +52,6 @@ class FormGroup extends Component {
   }
 }
 
-const AnimatedFormGroup = connectAnimation(FormGroup);
-const StyledFormGroup = connectStyle('lh.ui.FormGroup')(AnimatedFormGroup);
+const StyledFormGroup = connectStyle('lh.ui.FormGroup')(FormGroup);
 
 export { StyledFormGroup as FormGroup };
