@@ -74,4 +74,6 @@ class Checkbox extends Component {
 const AnimatedCheckbox = connectAnimation(Checkbox);
 const StyledCheckbox = connectStyle('lh.ui.Checkbox')(AnimatedCheckbox);
 
+StyledCheckbox.displayName = 'Checkbox';
+
 export { StyledCheckbox as Checkbox };
