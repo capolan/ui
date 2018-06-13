@@ -74,4 +74,6 @@ class Radio extends Component {
 const AnimatedRadio = connectAnimation(Radio);
 const StyledRadio = connectStyle('lh.ui.Radio')(AnimatedRadio);
 
+StyledRadio.displayName = 'Radio';
+
 export { StyledRadio as Radio };
