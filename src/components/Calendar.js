@@ -26,7 +26,7 @@ class Calendar extends Component {
     super(props);
 
     this.state = {
-      markedDates: props.markedDates || {},
+      markedDates: props.markedDates,
     };
   };
 
@@ -34,9 +34,9 @@ class Calendar extends Component {
     this.props.onRef(this);
   }
 
-  componentDidUpdate(prevProps) {
-    if (!_.isEqual(prevProps.markedDates, this.props.markedDates)) {
-      this.setState({ markedDates: this.props.markedDates });
+  componentWillUpdate(nextProps) {
+    if (!_.isEqual(nextProps.markedDates, this.props.markedDates)) {
+      this.setState({ markedDates: nextProps.markedDates });
     }
   }
 
@@ -44,7 +44,7 @@ class Calendar extends Component {
     this.props.onRef(this);
   }
 
-  selectPeriodDate = day => {
+  selectPeriod = day => {
     const { style } = this.props;
     const selectedDate = day.dateString;
     let newDates = { ...this.state.markedDates };
@@ -96,8 +96,9 @@ class Calendar extends Component {
 
   onDayPress = day => {
     const { markingType } = this.props;
+
     if (markingType === 'period') {
-      this.selectPeriodDate(day);
+      this.selectPeriod(day);
     } else {
       this.onValueChange(day);
     }
@@ -114,8 +115,8 @@ class Calendar extends Component {
   }
 
   render() {
-    const { current, markedDates } = this.state;
-    const { ...props } = this.props;
+    const { markedDates } = this.state;
+    const { current, ...props } = this.props;
     const style = { ...props.style };
     delete style.markedDayColor;
     delete style.iconColor;
@@ -126,6 +127,7 @@ class Calendar extends Component {
         style={style}
         theme={{
           todayTextColor: props.style.markedDayColor,
+          selectedDayBackgroundColor: props.style.markedDayColor,
         }}
         renderArrow={(direction) => (
           <Icon name={`chevron-${direction}`} color={props.style.iconColor} />
