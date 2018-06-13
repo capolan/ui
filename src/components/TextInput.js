@@ -49,4 +49,6 @@ class TextInput extends Component {
 
 const StyledTextInput = connectStyle('lh.ui.TextInput')(TextInput);
 
+StyledTextInput.displayName = 'TextInput';
+
 export { StyledTextInput as TextInput };
