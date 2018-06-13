@@ -18,10 +18,10 @@ class FormGroup extends Component {
   };
 
   onPress = () => {
-    if (this.childRef && _.has(this.childRef, 'focus')) {
-      this.childRef.focus();
-    } else if (this.childRef && _.has(this.childRef, 'toggle')) {
-      this.childRef.toggle();
+    if (this.textInputRef) {
+      this.textInputRef.focus();
+    } else if (this.toggleRef) {
+      this.toggleRef.toggle();
     }
 
     this.props.onPress();
@@ -29,12 +29,22 @@ class FormGroup extends Component {
 
   renderChildren = () => {
     const { children } = this.props;
+    const TOGGLE_ELEMENTS = ['Checkbox', 'Radio', 'Switch'];
+
     return React.Children.map(children, (child, index) => {
       if (child.children) return this.renderChildren(children);
 
-      return React.cloneElement(child, {
-        onRef: ref => this.childRef = ref,
-      });
+      if (child.type.displayName === 'TextInput') {
+        return React.cloneElement(child, {
+          onRef: ref => this.textInputRef = ref,
+        });
+      } else if (_.find(TOGGLE_ELEMENTS, (name) => name === child.type.displayName)) {
+        return React.cloneElement(child, {
+          onRef: ref => this.toggleRef = ref,
+        });
+      }
+
+      return child;
     });
   }
 
@@ -53,5 +63,7 @@ class FormGroup extends Component {
 }
 
 const StyledFormGroup = connectStyle('lh.ui.FormGroup')(FormGroup);
+
+StyledFormGroup.displayName = 'FormGroup';
 
 export { StyledFormGroup as FormGroup };
