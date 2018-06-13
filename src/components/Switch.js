@@ -82,4 +82,6 @@ class Switch extends Component {
 const AnimatedSwitch = connectAnimation(Switch);
 const StyledSwitch = connectStyle('lh.ui.Switch')(AnimatedSwitch);
 
+StyledSwitch.displayName = 'Switch';
+
 export { StyledSwitch as Switch };
