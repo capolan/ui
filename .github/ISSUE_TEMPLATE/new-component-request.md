@@ -16,8 +16,6 @@ Here is the component description.
 |-------------|------------|------|---------|----------|
 | **example** | Example of an prop | String | - | false |
 
-`Typography` components doesn't have custom Props, however, all Props available in the standard React Native `Text` component are supported by each component.
-
 **Style names**
 
 | Declaration  | Description  |
