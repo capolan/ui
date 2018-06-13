@@ -23,4 +23,6 @@ class Button extends Component {
 
 const StyledButton = connectStyle('lh.ui.Button')(Button);
 
+StyledButton.displayName = 'Button';
+
 export { StyledButton as Button };
