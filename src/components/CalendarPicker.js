@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import RMCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import I18n from '../i18n';
+import { isTouchableElement, invalidTouchableChildrenElement } from '../utils';
 import { Popup, Calendar, Button, Text } from '../';
 
 import { connectStyle } from '@shoutem/theme';
@@ -24,9 +24,15 @@ class CalendarPicker extends Component {
   renderChildren = () => {
     const { children } = this.props;
 
-    return React.cloneElement(children, {
-      onPress: () => this.popupRef.open(),
-    });
+    if (isTouchableElement(children)) {
+      return React.cloneElement(children, {
+        onPress: () => this.popupRef.open(),
+      });
+    } else {
+      invalidTouchableChildrenElement('CalendarPicker');
+    }
+
+    return null;
   }
 
   render() {

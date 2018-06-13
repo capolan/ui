@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import RMCPicker from 'rmc-picker/lib/Picker';
+import { isTouchableElement, invalidTouchableChildrenElement } from '../utils';
 import { Popup } from '../';
 
 import { connectStyle } from '@shoutem/theme';
@@ -20,9 +21,15 @@ class Picker extends Component {
   renderChildren = () => {
     const { children } = this.props;
 
-    return React.cloneElement(children, {
-      onPress: () => this.popupRef.open(),
-    });
+    if (isTouchableElement(children)) {
+      return React.cloneElement(children, {
+        onPress: () => this.popupRef.open(),
+      });
+    } else {
+      invalidTouchableChildrenElement('Picker');
+    }
+
+    return null;
   }
 
   render() {
