@@ -1,88 +1,104 @@
+import { StyleSheet } from 'react-native';
 import { INCLUDE } from '@shoutem/theme';
 
-export default (variables) => ({
-  'lh.ui.NavigationHeader': {
-    '.featured': {
-      container: {
-        backgroundColor: variables.featuredColor,
-      }
+export default (variables) => {
+  const button = {
+    'lh.ui.Icon': {
+      color: variables.textColor,
+      marginHorizontal: variables.smallGutter,
     },
 
-    '.dark': {
-      container: {
-        borderBottomColor: 'transparent',
-        backgroundColor: variables.darkColor,
+    paddingHorizontal: variables.extraSmallGutter,
+  };
+
+  return {
+    'lh.ui.NavigationHeader': {
+      '.featured': {
+        container: {
+          backgroundColor: variables.featuredColor,
+        }
       },
 
-      'lh.ui.Title': {
-        color: variables.paperColor,
-      },
+      '.dark': {
+        container: {
+          borderBottomColor: 'transparent',
+          backgroundColor: variables.darkColor,
+        },
 
-      'lh.ui.Button': {
-        'lh.ui.Icon': {
+        'lh.ui.Title': {
           color: variables.paperColor,
         },
-      },
-    },
 
-    '.paper': {
+        'lh.ui.Button': {
+          'lh.ui.Icon': {
+            color: variables.paperColor,
+          },
+        },
+      },
+
+      '.paper': {
+        container: {
+          borderBottomColor: 'transparent',
+          backgroundColor: variables.paperColor,
+        },
+
+        'lh.ui.Title': {
+          color: variables.darkColor,
+        },
+
+        'lh.ui.Button': {
+          'lh.ui.Icon': {
+            color: variables.darkColor,
+          },
+        },
+      },
+
       container: {
-        borderBottomColor: 'transparent',
-        backgroundColor: variables.paperColor,
+        height: 60,
+        backgroundColor: variables.backgroundColor,
+        borderBottomWidth: variables.hairlineWidth,
+        borderBottomColor: variables.lineColor,
       },
 
-      'lh.ui.Title': {
-        color: variables.darkColor,
+      componentsContainer: {
+        flex: 1,
+        flexWrap: 'nowrap',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: 'transparent',
+      },
+
+      centerComponent: {
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
+      leftComponent: {
+        flex: 1,
+        alignSelf: 'flex-start',
+        alignItems: 'flex-start',
+      },
+
+      rightComponent: {
+        flex: 1,
+        alignSelf: 'flex-end',
+        alignItems: 'flex-end',
+      },
+
+      'lh.ui.View': {
+        'lh.ui.Button': {
+          ...button,
+        },
+
+        flex: 1,
+        flexDirection: 'row',
       },
 
       'lh.ui.Button': {
-        'lh.ui.Icon': {
-          color: variables.darkColor,
-        },
+        ...button,
+
+        flex: 1,
       },
     },
-
-    container: {
-      height: 60,
-      backgroundColor: variables.backgroundColor,
-      borderBottomWidth: variables.hairlineWidth,
-      borderBottomColor: variables.lineColor,
-    },
-
-    componentsContainer: {
-      flex: 1,
-      flexDirection: 'row',
-      alignItems: 'flex-end',
-      justifyContent: 'space-between',
-      backgroundColor: 'transparent',
-    },
-
-    leftComponent: {
-      flex: 1,
-      alignSelf: 'center',
-      alignItems: 'flex-start',
-    },
-
-    centerComponent: {
-      flex: 1,
-      alignSelf: 'center',
-      alignItems: 'center',
-    },
-
-    rightComponent: {
-      flex: 1,
-      alignSelf: 'center',
-      alignItems: 'flex-end',
-    },
-
-    'lh.ui.Button': {
-      flex: 1,
-      paddingHorizontal: variables.extraSmallGutter,
-
-      'lh.ui.Icon': {
-        color: variables.textColor,
-        marginHorizontal: variables.smallGutter,
-      },
-    },
-  },
-});
+  };
+};
