@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StatusBar, Platform, View } from 'react-native';
+import { StatusBar, StatusBarProps, Platform, View } from 'react-native';
 import { SafeAreaView, withNavigation } from 'react-navigation';
-import * as _ from 'lodash';
+import _ from 'lodash';
 import color from 'tinycolor2';
 
 import { connectStyle } from '@shoutem/theme';
@@ -10,24 +10,28 @@ import { connectStyle } from '@shoutem/theme';
 import composeComponents from './ComposeComponents';
 
 class NavigationHeader extends Component {
-  static defaultProps = {
-    id: 'default',
-  };
-
   static propTypes = {
-    leftComponent: PropTypes.node,
-    centerComponent: PropTypes.node,
-    rightComponent: PropTypes.node,
+    leftComponent: PropTypes.element,
+    centerComponent: PropTypes.element,
+    rightComponent: PropTypes.element,
+    statusBarOptions: PropTypes.object,
     style: PropTypes.object,
-    id: PropTypes.string,
   };
 
-  componentDidMount() {
-    const backgroundColor = this.getBackgroundColor(this.props.style);
-    this.setStatusBarStyle(backgroundColor);
+  shouldComponentUpdate(nextProps) {
+    return !_.isEqual(nextProps, this.props);
   }
 
-  getBackgroundColor = (style) => {
+  componentDidMount() {
+    this.setStatusBarStyle();
+  }
+
+  componentWillUpdate() {
+    this.setStatusBarStyle();
+  }
+
+  getBackgroundColor = () => {
+    const { style } = this.props;
     const bgColor = _.find(style, (styleDef) =>
       styleDef.backgroundColor && styleDef.backgroundColor !== 'transparent'
     );
@@ -38,12 +42,18 @@ class NavigationHeader extends Component {
     return color(backgroundColor).isDark();
   }
 
-  setStatusBarStyle = (backgroundColor) => {
+  setStatusBarStyle = () => {
+    const backgroundColor = this.getBackgroundColor();
     const barStyle = this.getBackgroundColorBrightness(backgroundColor)
       ? 'light-content'
       : 'dark-content';
 
-    StatusBar.setBarStyle(barStyle);
+    StatusBar.setBarStyle(barStyle, true);
+
+    if (Platform.OS === 'android') {
+      StatusBar.setBackgroundColor(backgroundColor);
+      StatusBar.setTranslucent(false);
+    }
   }
 
   render() {
@@ -52,11 +62,10 @@ class NavigationHeader extends Component {
       rightComponent,
       centerComponent,
       style,
-      id,
     } = this.props;
 
     return (
-      <SafeAreaView key={id} style={style.container} forceInset={{ top: 'always' }}>
+      <SafeAreaView style={style.container} forceInset={{ top: 'always' }}>
         <View style={style.componentsContainer}>
           <View style={style.leftComponent}>{leftComponent}</View>
           <View style={style.centerComponent}>{centerComponent}</View>
