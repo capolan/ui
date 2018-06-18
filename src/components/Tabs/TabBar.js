@@ -78,6 +78,7 @@ class TabBar extends Component {
   renderTabs = () => {
     const { scrollEnabled, navigationState, layout, style } = this.props;
     const { routes } = navigationState;
+    const routesNum = routes.length;
 
     return routes.map((route, index) => {
       const focused = index === navigationState.index;
@@ -88,7 +89,7 @@ class TabBar extends Component {
 
       const tabStyle = [
         style.tab,
-        !scrollEnabled && { width: layout.width / routes.length },
+        (!scrollEnabled && routesNum <= 4) && { width: layout.width / routes.length },
       ];
 
       return (
@@ -109,7 +110,8 @@ class TabBar extends Component {
   }
 
   render() {
-    const { scrollEnabled, ...props } = this.props;
+    const { navigationState, scrollEnabled, ...props } = this.props;
+    const routesNum = navigationState.routes.length;
     const style = { ...props.style };
     delete style.scroll;
     delete style.tab;
@@ -125,7 +127,7 @@ class TabBar extends Component {
             contentContainerStyle={props.style.scroll}
             keyboardShouldPersistTaps="handled"
             overScrollMode="never"
-            scrollEnabled={scrollEnabled}
+            scrollEnabled={scrollEnabled || routesNum > 4}
             showsHorizontalScrollIndicator={false}
             scrollsToTop={false}
             alwaysBounceHorizontal={false}
