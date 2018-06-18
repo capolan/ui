@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { DrawerActions } from 'react-navigation';
+import _ from 'lodash';
 
 import { Button } from '../Button';
 import { Title } from '../Text';
 import { Icon } from '../Icon';
-
-import * as _ from 'lodash';
 
 const components = {
   title: (value, props) => ({
@@ -23,7 +23,7 @@ const components = {
       >
         <Icon name="menu" animationName={props.animationName} />
       </Button>
-    ) : null;
+    ) : <View />;
 
     return { leftComponent };
   },
@@ -35,7 +35,7 @@ const components = {
       >
         <Icon name="arrow-left" animationName={props.animationName} />
       </Button>
-    ) : null;
+    ) : <View />;
 
     return { leftComponent };
   },
