@@ -1,4 +1,4 @@
-const translation = {
+export const translation = {
   monthNames: [
     'Janeiro',
     'Fevereiro',
@@ -46,5 +46,3 @@ const translation = {
     'Sáb',
   ],
 };
-
-export default translation;

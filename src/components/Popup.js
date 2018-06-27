@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import _ from 'lodash';
-import I18n from '../i18n';
 import { Modal, Card, Button, Text } from '../';
 
 import { connectStyle } from '@shoutem/theme';
@@ -10,6 +9,7 @@ import { connectStyle } from '@shoutem/theme';
 class Popup extends Component {
   static defaultProps = {
     onRef: () => undefined,
+    doneText: 'Done',
   };
 
   static propTypes = {
@@ -17,6 +17,7 @@ class Popup extends Component {
     headerCenter: PropTypes.element,
     headerLeft: PropTypes.element,
     headerRight: PropTypes.element,
+    doneText: PropTypes.string,
     children: PropTypes.node,
     style: PropTypes.object,
   };
@@ -31,7 +32,7 @@ class Popup extends Component {
   }
 
   renderHeader = () => {
-    const { headerCenter, headerLeft, headerRight, style } = this.props;
+    const { style, headerCenter, headerLeft, headerRight, doneText } = this.props;
 
     return (
       <View style={style.header}>
@@ -40,9 +41,7 @@ class Popup extends Component {
         <View>
           {headerRight ? headerRight : (
             <Button styleName="clear" onPress={() => this.modalRef.close()}>
-              <Text styleName="bold dark">
-                {I18n('done')}
-              </Text>
+              <Text styleName="bold dark">{doneText}</Text>
             </Button>
           )}
         </View>

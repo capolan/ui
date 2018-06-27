@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import I18n from '../i18n';
 import { isTouchableElement, invalidTouchableChildrenElement } from '../utils';
 import { Popup, Calendar, Button, Text } from '../';
 
 import { connectStyle } from '@shoutem/theme';
 
 class CalendarPicker extends Component {
+  static defaultProps = {
+    clearText: 'Clear',
+  };
+
   static propTypes = {
     ...Calendar.propTypes,
+    clearText: PropTypes.string,
     children: PropTypes.node,
   };
 
   renderClearButton = () => (
     <Button styleName="clear end" onPress={() => this.calendarRef.clear()}>
-      <Text styleName="bold dark">
-        {I18n('clear')}
-      </Text>
+      <Text styleName="bold dark">{this.props.clearText}</Text>
     </Button>
   );
 

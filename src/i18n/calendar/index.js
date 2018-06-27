@@ -1,3 +1,1 @@
-import pt from './pt';
-
-export { pt };
+export * as pt from './pt';

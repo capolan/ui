@@ -1,7 +1,7 @@
-import I18n from 'ex-react-native-i18n';
 import moment from 'moment/min/moment-with-locales';
 import { LocaleConfig } from 'react-native-calendars';
 import _ from 'lodash';
+import I18n from '../lib/i18n';
 import * as calendarLocales from '../i18n/calendar';
 
 const normalizeLocale = (locale) => {
