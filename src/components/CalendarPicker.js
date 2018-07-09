@@ -8,11 +8,13 @@ import { connectStyle } from '@shoutem/theme';
 
 class CalendarPicker extends Component {
   static defaultProps = {
+    onClose: () => undefined,
     clearText: 'Clear',
   };
 
   static propTypes = {
     ...Calendar.propTypes,
+    onClose: PropTypes.func,
     clearText: PropTypes.string,
     children: PropTypes.node,
   };
@@ -38,6 +40,7 @@ class CalendarPicker extends Component {
   }
 
   render() {
+    const { onClose } = this.props;
     const children = this.renderChildren();
     const clear = this.renderClearButton();
 
@@ -47,6 +50,7 @@ class CalendarPicker extends Component {
         <Popup
           onRef={ref => { this.popupRef = ref; }}
           headerLeft={clear}
+          onClose={onClose}
         >
           <Calendar
             onRef={ref => { this.calendarRef = ref; }}

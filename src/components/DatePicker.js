@@ -13,6 +13,7 @@ import { connectStyle } from '@shoutem/theme';
 
 class DatePicker extends Component {
   static defaultProps = {
+    onClose: () => undefined,
     date: new Date(),
     defaultDate: new Date(),
     mode: 'datetime',
@@ -21,6 +22,7 @@ class DatePicker extends Component {
 
   static propTypes = {
     onValueChange: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
     mode: PropTypes.oneOf(['datetime', 'date', 'year', 'month', 'time']),
     date: PropTypes.instanceOf(Date),
     defaultDate: PropTypes.instanceOf(Date),
@@ -62,6 +64,7 @@ class DatePicker extends Component {
       maxDate,
       use12hours,
       onValueChange,
+      onClose,
       style,
     } = this.props;
     const children = this.renderChildren();
@@ -69,7 +72,7 @@ class DatePicker extends Component {
     return (
       <View>
         {children}
-        <Popup onRef={ref => { this.popupRef = ref; }}>
+        <Popup onRef={ref => { this.popupRef = ref; }} onClose={onClose}>
           <RMCDatePicker
             mode={mode}
             date={date}

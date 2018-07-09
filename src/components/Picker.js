@@ -8,9 +8,14 @@ import { Popup } from '../';
 import { connectStyle } from '@shoutem/theme';
 
 class Picker extends Component {
+  static defaultProps = {
+    onClose: () => undefined,
+  };
+
   static propTypes = {
     selectedValue: PropTypes.string,
     onValueChange: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
     data: PropTypes.arrayOf(PropTypes.shape({
       value: PropTypes.string,
       label: PropTypes.string,
@@ -33,13 +38,13 @@ class Picker extends Component {
   }
 
   render() {
-    const { data, selectedValue, onValueChange, style } = this.props;
+    const { data, selectedValue, onValueChange, onClose, style } = this.props;
     const children = this.renderChildren();
 
     return (
       <View>
         {children}
-        <Popup onRef={ref => { this.popupRef = ref; }}>
+        <Popup onRef={ref => { this.popupRef = ref; }} onClose={onClose}>
           <RMCPicker
             itemStyle={style.item}
             selectedValue={selectedValue}

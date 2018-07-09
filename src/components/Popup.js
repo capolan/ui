@@ -9,6 +9,7 @@ import { connectStyle } from '@shoutem/theme';
 class Popup extends Component {
   static defaultProps = {
     onRef: () => undefined,
+    onClose: () => undefined,
     doneText: 'Done',
   };
 
@@ -18,6 +19,7 @@ class Popup extends Component {
     headerLeft: PropTypes.element,
     headerRight: PropTypes.element,
     doneText: PropTypes.string,
+    onClose: PropTypes.func,
     children: PropTypes.node,
     style: PropTypes.object,
   };
@@ -31,6 +33,11 @@ class Popup extends Component {
     this.props.onRef(ref);
   }
 
+  onClose = () => {
+    this.props.onClose();
+    this.modalRef.close();
+  }
+
   renderHeader = () => {
     const { style, headerCenter, headerLeft, headerRight, doneText } = this.props;
 
@@ -40,7 +47,7 @@ class Popup extends Component {
         <View>{headerCenter}</View>
         <View>
           {headerRight ? headerRight : (
-            <Button styleName="clear" onPress={() => this.modalRef.close()}>
+            <Button styleName="clear" onPress={() => this.onClose()}>
               <Text styleName="bold dark">{doneText}</Text>
             </Button>
           )}
