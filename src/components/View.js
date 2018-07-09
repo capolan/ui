@@ -12,10 +12,10 @@ class View extends Component {
   };
 
   render() {
-    const style = { ...this.props.style };
+    const { style, ...props } = this.props;
 
     return (
-      <RNView {...this.props} style={style}>
+      <RNView style={style} {...props}>
         {this.props.children}
       </RNView>
     );
