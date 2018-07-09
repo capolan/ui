@@ -90,7 +90,7 @@ class Tabs extends Component {
         navigationState={this.state}
         renderScene={this.renderScene}
         renderTabBar={this.renderTabBar}
-        onIndexChange={index => this.setState({ index })}
+        onIndexChange={this.onIndexChange}
         initialLayout={style.initialLayout}
         tabBarPosition={tabBarPosition}
       />
