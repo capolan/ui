@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 
-@observer
 class Collapsible extends Component {
   static propTypes = {
     expanded: PropTypes.bool,
