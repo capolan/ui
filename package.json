@@ -9,7 +9,6 @@
   },
   "author": "Donald Silveira <donaldsilveira@gmail.com>",
   "license": "MIT",
-  "private": false,
   "dependencies": {
     "@shoutem/animation": "0.12.2",
     "@shoutem/theme": "0.11.1",
