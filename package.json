@@ -1,5 +1,5 @@
 {
-  "name": "@lighthouseit/ui",
+  "name": "@lighthouseapps/ui",
   "description": "A Customizable and Modular Components Library for React Native apps",
   "version": "0.0.68",
   "main": "src/index.js",
