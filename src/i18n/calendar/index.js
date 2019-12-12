@@ -1,1 +1,1 @@
-export * as pt from './pt';
+export { translation } from './pt';
