@@ -1,7 +1,7 @@
 {
-  "name": "@lighthouseapps/ui",
+  "name": "lighthouseapps/ui",
   "description": "A Customizable and Modular Components Library for React Native apps",
-  "version": "0.0.69",
+  "version": "0.0.70",
   "main": "src/index.js",
   "repository": "https://github.com/LighthouseIT/ui",
   "bugs": {
@@ -54,7 +54,7 @@
       "src/fonts"
     ],
     "commands": {
-      "postlink": "node ./node_modules/@lighthouseit/ui/scripts/link.js"
+      "postlink": "node ./node_modules/lighthouseit/ui/scripts/link.js"
     }
   }
 }
