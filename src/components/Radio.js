@@ -36,7 +36,7 @@ class Radio extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  (nextProps) {
     if (nextProps.value !== this.props.value) {
       this.setValue(nextProps.value);
     }
