@@ -1,11 +1,11 @@
 {
-  "name": "lighthouseapps/ui",
+  "name": "capolan/ui",
   "description": "A Customizable and Modular Components Library for React Native apps",
   "version": "0.0.70",
   "main": "src/index.js",
-  "repository": "https://github.com/LighthouseIT/ui",
+  "repository": "https://github.com/capolan/ui",
   "bugs": {
-    "url": "https://github.com/LighthouseIT/ui/issues"
+    "url": "https://github.com/capolan/ui/issues"
   },
   "author": "Donald Silveira <donaldsilveira@gmail.com>",
   "license": "MIT",
