@@ -10,8 +10,8 @@
   "author": "Donald Silveira <donaldsilveira@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@shoutem/animation": "0.12.2",
-    "@shoutem/theme": "https://github.com/LighthouseIT/theme",
+    "@shoutem/animation": "0.15.0",
+    "@shoutem/theme": "0.13.1",
     "ex-react-native-i18n": "0.0.4",
     "react-native-i18n": "2.0.12",
     "lodash": "4.17.15",

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StatusBar, StatusBarProps, Platform, View } from 'react-native';
-import { SafeAreaView, withNavigation } from 'react-navigation';
+import { useNavigation } from '@react-navigation/native'; // not sure package name
+
+import { SafeAreaView } from '@react-navigation/native';
 import _ from 'lodash';
 import color from 'tinycolor2';
 
@@ -77,9 +79,14 @@ class NavigationHeader extends Component {
 }
 
 const StyledNavigationHeader = connectStyle('lh.ui.NavigationHeader')(NavigationHeader);
-const ComposedNavigationHeader = withNavigation(
-  composeComponents(StyledNavigationHeader)
-);
+
+const ComposedNavigationHeader = () => {
+return () => {
+  const navigation = useNavigation();
+  return <StyledNavigationHeader navigation={navigation} {...props} />;
+}
+}
+
 
 export {
   ComposedNavigationHeader as NavigationHeader,
