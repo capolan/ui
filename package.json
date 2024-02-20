@@ -18,20 +18,19 @@
     "moment": "2.22.1",
     "moment-range": "4.0.1",
     "prop-types": "15.6.1",
-    "react-native-calendars": "1.19.3",
-    "react-native-collapsible": "0.11.3",
-    "react-native-tab-view": "1.0.2",
-    "react-native-vector-icons": "4.6.0",
-    "rmc-date-picker": "6.0.8",
-    "rmc-picker": "5.0.5",
+    "react-native-calendars": "1.1303.0",
+    "react-native-collapsible": "1.6.1",
+    "react-native-tab-view": "3.5.2",
+    "react-native-vector-icons": "10.0.3",
+    "rmc-date-picker": "6.0.10",
+    "rmc-picker": "5.0.10",
     "tinycolor2": "1.4.1",
     "twix": "1.2.1"
   },
   "peerDependencies": {
-    "expo": ">=27.0.1",
-    "react": "*",
-    "react-native": ">=0.50.0",
-    "react-navigation": "*"
+    "expo": ">=50.0.1",
+    "react": "18.2.0",
+    "react-native": ">=0.64.3"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
