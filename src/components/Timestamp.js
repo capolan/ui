@@ -23,7 +23,7 @@ class Timestamp extends Component {
     this.setDataFormat(this.props);
   }
 
-  (nextProps) {
+  componentWillReceiveProps(nextProps) {
     this.setDataFormat(nextProps);
   }
 

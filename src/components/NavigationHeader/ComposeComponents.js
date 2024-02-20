@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from '@react-navigation/native';
 import _ from 'lodash';
 
 import { Button } from '../Button';

@@ -36,7 +36,7 @@ class Checkbox extends Component {
     }
   }
 
-  (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       this.setValue(nextProps.value);
     }
