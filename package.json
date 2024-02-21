@@ -12,7 +12,7 @@
   "dependencies": {
     "@shoutem/animation": "0.15.0",
     "@shoutem/theme": "0.13.1",
-    "ex-react-native-i18n": "0.0.4",
+    "ex-react-native-i18n": "0.0.6",
     "react-native-i18n": "2.0.12",
     "lodash": "4.17.15",
     "moment": "2.22.1",
@@ -30,7 +30,7 @@
   "peerDependencies": {
     "expo": ">=50.0.1",
     "react": "18.2.0",
-    "react-native": ">=0.74.3",
+    "react-native": "0.73.4",
     "@react-navigation/native": "^6.1.10"
   },
   "devDependencies": {
